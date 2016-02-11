@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="scan_device_layout" type="layout">@layout/scan_device_grid</item>
+    <item name="data_layout" type="layout">@layout/activity_data_fragments</item>
+    <item name="isTablet" type="bool">true</item>
+</resources>

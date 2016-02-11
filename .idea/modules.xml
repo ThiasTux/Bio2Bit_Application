@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Bio2BitApp/Bio2BitApp.iml" filepath="$PROJECT_DIR$/Bio2BitApp/Bio2BitApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bio2Bit_Application.iml" filepath="$PROJECT_DIR$/Bio2Bit_Application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BlueSTSDK/BlueSTSDK.iml" filepath="$PROJECT_DIR$/BlueSTSDK/BlueSTSDK.iml" />
+    </modules>
+  </component>
+</project>

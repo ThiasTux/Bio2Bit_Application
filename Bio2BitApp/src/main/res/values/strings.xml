@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Bio2Bit</string>
+    <string name="action_settings">Settings</string>
+    <string name="permission_check_failed">You must grant the permission to access the coarse location, in order to use BLE on API 23.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="heart_rate">Heart Rate</string>
+    <string name="activity_level">Activity Level</string>
+    <string name="br_rate">Br Rate</string>
+    <string name="gsr_signal">GSR signal</string>
+    <string name="ecg_signal">ECG Signal</string>
+    <string name="signal_label">Signal Label</string>
+    <string name="start_plot">Start Plot</string>
+    <string name="stop_plot">Stop Plot</string>
+    <string name="action_scan">Scan</string>
+    <string name="devices">Device list</string>
+    <string name="action_stop">Stop</string>
+    <string name="values">Values</string>
+    <string name="charts">Charts</string>
+    <string name="bio_label">Bioimpedance</string>
+    <string name="ecg_label">ECG</string>
+    <string name="gsr_label">GSR</string>
+    <string name="chart_label">Chart_Label</string>
+</resources>
