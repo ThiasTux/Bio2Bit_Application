@@ -165,7 +165,7 @@ public abstract class Feature {
 
     /**
      * remove a logger listener
-     *
+     *pro
      * @param logger listener to remove
      */
     public void removeFeatureLoggerListener(FeatureLoggerListener logger) {

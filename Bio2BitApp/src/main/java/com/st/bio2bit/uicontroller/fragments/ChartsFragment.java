@@ -3,7 +3,6 @@ package com.st.bio2bit.uicontroller.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,7 @@ import com.github.clans.fab.FloatingActionButton;
 import com.st.BlueSTSDK.Feature;
 import com.st.BlueSTSDK.Node;
 import com.st.bio2bit.R;
+import com.st.bio2bit.uicontroller.activities.DataActivity;
 import com.st.bio2bit.uicontroller.adapters.ChartsAdapter;
 
 import java.util.List;
@@ -23,7 +23,7 @@ import butterknife.OnClick;
 
 public class ChartsFragment extends Fragment {
 
-    FragmentActivity activity;
+    DataActivity activity;
 
     @Bind(R.id.charts_list)
     ViewPager chartsList;
@@ -42,7 +42,7 @@ public class ChartsFragment extends Fragment {
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
-        this.activity = (FragmentActivity) activity;
+        this.activity = (DataActivity) activity;
     }
 
     // This event fires 2nd, before views are created for the fragment
@@ -72,7 +72,7 @@ public class ChartsFragment extends Fragment {
         chartsAdapter = new ChartsAdapter(activity);
         chartsList.setAdapter(chartsAdapter);
         previousFab.setEnabled(false);
-
+        nextFab.setEnabled(false);
     }
 
     // This method is called after the parent Activity's onCreate() method has completed.
@@ -81,14 +81,21 @@ public class ChartsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
         setFeatureLists();
+        if(DataActivity.chartFeatures.size()>1)
+            nextFab.setEnabled(true);
     }
 
     @OnClick(R.id.previous_fab)
     public void previousChart(){
         int totalFeatures = chartsAdapter.getCount();
         int currentElementIdx = chartsList.getCurrentItem();
-        if(currentElementIdx==1)
+        if(currentElementIdx==1 || currentElementIdx==0)
             previousFab.setEnabled(false);
         else if(currentElementIdx==totalFeatures-1)
             nextFab.setEnabled(true);

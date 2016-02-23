@@ -18,6 +18,7 @@ import com.st.bio2bit.uicontroller.adapters.PagerAdapter;
 import com.st.bio2bit.uicontroller.fragments.ChartsFragment;
 import com.st.bio2bit.uicontroller.fragments.ValuesFragment;
 import com.st.bio2bit.utilities.Constants;
+import com.st.bio2bit.utilities.Utilities;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,11 +55,21 @@ public class DataActivity extends AppCompatActivity {
                     case Constants.START_STREAM_VF:
                         for (Feature feature : valueFeatures)
                             connectedNode.enableNotification(feature);
+                        Constants.IS_STREAMING_VF = true;
                         return true;
                     case Constants.STOP_STREAM_VF:
                         for(Feature feature : valueFeatures)
                             connectedNode.disableNotification(feature);
+                        Constants.IS_STREAMING_VF = false;
                         return true;
+                    case Constants.START_STREAM_CF:
+                        Feature feature_start = (Feature) msg.obj;
+                        connectedNode.enableNotification(feature_start);
+                        return true;
+                    case Constants.STOP_STREAM_CF:
+                        Feature feature_stop = (Feature) msg.obj;
+                        if(!(Constants.IS_STREAMING_VF && Utilities.isValueFeature(feature_stop)))
+                            connectedNode.disableNotification(feature_stop);
                     default:
                         return false;
                 }
@@ -80,23 +91,14 @@ public class DataActivity extends AppCompatActivity {
             setupFragments();
         else
             setupTabs();
-
-        extractValueFeatures();
-        extractChartFeatures();
-        //valuesFragment.setFeatureLists();
-        //chartsFragment.setFeatureLists();
     }
 
-    private void extractValueFeatures() {
-        for (Feature feature : connectedNode.getFeatures()) {
-            if (Arrays.asList(Constants.valuesFeatures).contains(feature.getClass())) {
+    private void extractFeatures() {
+        List<Feature> features = connectedNode.getFeatures();
+        for (Feature feature : features) {
+            feature.removeAllFeatureListener();
+            if (Arrays.asList(Constants.valuesFeatures).contains(feature.getClass()))
                 valueFeatures.add(feature);
-            }
-        }
-    }
-
-    private void extractChartFeatures() {
-        for (Feature feature : connectedNode.getFeatures()) {
             if (Arrays.asList(Constants.chartsFeatures).contains(feature.getClass()))
                 chartFeatures.add(feature);
         }
@@ -125,11 +127,14 @@ public class DataActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        extractFeatures();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        valueFeatures = new ArrayList<>();
+        chartFeatures = new ArrayList<>();
     }
 
     @Override

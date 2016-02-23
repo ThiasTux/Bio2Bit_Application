@@ -3,18 +3,18 @@ package com.st.bio2bit.utilities;
 import com.st.BlueSTSDK.Features.FeatureAcceleration;
 import com.st.BlueSTSDK.Features.FeatureActivity;
 import com.st.BlueSTSDK.Features.FeatureBattery;
+import com.st.BlueSTSDK.Features.FeatureBioimpedance;
+import com.st.BlueSTSDK.Features.FeatureBioimpedanceCompact;
+import com.st.BlueSTSDK.Features.FeatureElectrocardiogram;
+import com.st.BlueSTSDK.Features.FeatureElectrocardiogramCompact;
+import com.st.BlueSTSDK.Features.FeatureGalvanicSkinResponse;
+import com.st.BlueSTSDK.Features.FeatureGalvanicSkinResponseCompact;
 import com.st.BlueSTSDK.Features.FeatureGyroscope;
 import com.st.BlueSTSDK.Features.FeatureHumidity;
 import com.st.BlueSTSDK.Features.FeatureMagnetometer;
 import com.st.BlueSTSDK.Features.FeatureMemsSensorFusion;
 import com.st.BlueSTSDK.Features.FeaturePressure;
 import com.st.BlueSTSDK.Features.FeatureTemperature;
-import com.st.bio2bit.model.FeatureBioimpedanceAC;
-import com.st.bio2bit.model.FeatureBioimpedanceDC;
-import com.st.bio2bit.model.FeatureBreathingRate;
-import com.st.bio2bit.model.FeatureECG;
-import com.st.bio2bit.model.FeatureGalvanicSkinResponse;
-import com.st.bio2bit.model.FeatureHeartRate;
 
 /**
  * Created by mathias on 11/01/16.
@@ -28,6 +28,7 @@ public class Constants {
     public static final int START_STREAM_VF = 1001;
     public static final int STOP_STREAM_VF = 2001;
     public static final int START_STREAM_CF = 1002;
+    public static final int STOP_STREAM_CF = 2002;
 
     public static final String START_RECORDING = "com.st.stblue_hippo.start_recording";
     public static final String PAUSE_RECORDING = "com.st.stblue_hippo.pause_recording";
@@ -40,8 +41,6 @@ public class Constants {
             FeatureTemperature.class,
             FeatureBattery.class,
             FeatureActivity.class,
-            FeatureHeartRate.class,
-            FeatureBreathingRate.class
     };
 
     public static final Class[] chartsFeatures = new Class[]{
@@ -53,13 +52,14 @@ public class Constants {
             FeatureTemperature.class,
             FeatureMemsSensorFusion.class,
             FeatureActivity.class,
-            FeatureHeartRate.class,
-            FeatureBreathingRate.class,
-            FeatureECG.class,
-            FeatureBioimpedanceAC.class,
-            FeatureBioimpedanceDC.class,
-            FeatureGalvanicSkinResponse.class
+            FeatureElectrocardiogram.class,
+            FeatureElectrocardiogramCompact.class,
+            FeatureBioimpedance.class,
+            FeatureBioimpedanceCompact.class,
+            FeatureGalvanicSkinResponse.class,
+            FeatureGalvanicSkinResponseCompact.class,
     };
+    public static boolean IS_STREAMING_VF=false;
 
     public enum FeatureClass {
         FeatureAcceleration,
@@ -72,15 +72,17 @@ public class Constants {
         FeatureActivity,
         FeatureHeartRate,
         FeatureBreathingRate,
-        FeatureECG,
-        FeatureBioimpedanceAC,
-        FeatureBioimpedanceDC,
+        FeatureElectrocardiogram,
+        FeatureElectrocardiogramCompact,
+        FeatureBioimpedance,
+        FeatureBioimpedanceCompact,
         FeatureGalvanicSkinResponse,
+        FeatureGalvanicSkinResponseCompact,
         FeatureBattery
     }
 
     public enum ConfigurableFeatures {
-        FeatureECG,
+        FeatureElectrocardiogram,
         FeatureGalvanicSkinResponse,
         FeatureBioimpedanceAC,
         FeatureBioimpedanceDC,

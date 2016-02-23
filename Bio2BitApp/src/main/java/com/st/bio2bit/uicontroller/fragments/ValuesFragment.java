@@ -95,6 +95,12 @@ public class ValuesFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //setFeatureLists();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
         setFeatureLists();
     }
 

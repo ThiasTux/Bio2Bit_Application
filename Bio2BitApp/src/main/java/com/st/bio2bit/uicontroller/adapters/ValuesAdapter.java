@@ -16,8 +16,6 @@ import com.st.BlueSTSDK.Features.FeatureHumidity;
 import com.st.BlueSTSDK.Features.FeaturePressure;
 import com.st.BlueSTSDK.Features.FeatureTemperature;
 import com.st.bio2bit.R;
-import com.st.bio2bit.model.FeatureBreathingRate;
-import com.st.bio2bit.model.FeatureHeartRate;
 import com.st.bio2bit.uicontroller.activities.DataActivity;
 import com.st.bio2bit.utilities.Constants;
 
@@ -96,10 +94,10 @@ public class ValuesAdapter extends RecyclerView.Adapter<ValuesAdapter.ViewHolder
                     featureUnit = String.valueOf(FeatureActivity.FEATURE_UNIT[0]);
                     break;
                 case FeatureHeartRate:
-                    featureUnit = String.valueOf(FeatureHeartRate.FEATURE_UNIT);
+                    featureUnit = "bpm";
                     break;
                 case FeatureBreathingRate:
-                    featureUnit = String.valueOf(FeatureBreathingRate.FEATURE_UNIT);
+                    featureUnit = "bpm";
                     break;
                 default:
                     featureUnit = "";
@@ -132,10 +130,10 @@ public class ValuesAdapter extends RecyclerView.Adapter<ValuesAdapter.ViewHolder
                     featureValue = String.valueOf(FeatureActivity.getActivityStatus(features.get(position).getSample()));
                     break;
                 case FeatureHeartRate:
-                    featureValue = String.valueOf(FeatureHeartRate.getHeartrate(features.get(position).getSample()));
+                    featureValue = "";
                     break;
                 case FeatureBreathingRate:
-                    featureValue = String.valueOf(FeatureBreathingRate.getBreatingRate(features.get(position).getSample()));
+                    featureValue = "";
                     break;
                 default:
                     featureValue = "";

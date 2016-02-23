@@ -32,8 +32,14 @@ import com.st.BlueSTSDK.Feature;
 import com.st.BlueSTSDK.Features.FeatureAcceleration;
 import com.st.BlueSTSDK.Features.FeatureActivity;
 import com.st.BlueSTSDK.Features.FeatureBattery;
+import com.st.BlueSTSDK.Features.FeatureBioimpedance;
+import com.st.BlueSTSDK.Features.FeatureBioimpedanceCompact;
 import com.st.BlueSTSDK.Features.FeatureCarryPosition;
+import com.st.BlueSTSDK.Features.FeatureElectrocardiogram;
+import com.st.BlueSTSDK.Features.FeatureElectrocardiogramCompact;
 import com.st.BlueSTSDK.Features.FeatureFreeFall;
+import com.st.BlueSTSDK.Features.FeatureGalvanicSkinResponse;
+import com.st.BlueSTSDK.Features.FeatureGalvanicSkinResponseCompact;
 import com.st.BlueSTSDK.Features.FeatureGesture;
 import com.st.BlueSTSDK.Features.FeatureGyroscope;
 import com.st.BlueSTSDK.Features.FeatureHumidity;
@@ -279,6 +285,12 @@ public class BLENodeDefines {
             Nucleo_0_Features.put(0x00000010, FeatureActivity.class);
             Nucleo_0_Features.put(0x00000008, FeatureCarryPosition.class);
             Nucleo_0_Features.put(0x00000004, FeatureGesture.class);
+            Nucleo_0_Features.put(0x00008000, FeatureElectrocardiogram.class);
+            Nucleo_0_Features.put(0x00004000, FeatureBioimpedance.class);
+            Nucleo_0_Features.put(0x00002000, FeatureGalvanicSkinResponse.class);
+            Nucleo_0_Features.put(0x00001000, FeatureElectrocardiogramCompact.class);
+            Nucleo_0_Features.put(0x00000800, FeatureBioimpedanceCompact.class);
+            Nucleo_0_Features.put(0x00000400, FeatureGalvanicSkinResponseCompact.class);
 
         }//static
 

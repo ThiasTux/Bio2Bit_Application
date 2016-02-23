@@ -33,7 +33,7 @@
         android:id="@+id/stop_plot_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/start_plot"
+        android:text="@string/stop_plot"
         android:visibility="gone"/>
 
     </LinearLayout>
@@ -43,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/chart_label" />
+        android:layout_below="@+id/chart_label"
+        android:layout_marginBottom="53dp"/>
 
 </RelativeLayout>
