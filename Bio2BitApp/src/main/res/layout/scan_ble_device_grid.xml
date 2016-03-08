@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,13 +9,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".uicontroller.activities.ScanDeviceActivity"
-    tools:showIn="@layout/activity_scan_device"
+    tools:context=".uicontroller.activities.ScanBleDeviceActivity"
+    tools:showIn="@layout/activity_scan_ble_device"
     android:id="@+id/scan_swipe_layout">
 
-    <ListView
+    <GridView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/leDevices" />
+        android:id="@+id/ble_devices"
+        android:numColumns="2"/>
 
 </android.support.v4.widget.SwipeRefreshLayout>

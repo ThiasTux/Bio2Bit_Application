@@ -17,12 +17,12 @@ import java.util.List;
 /**
  * Created by mathias on 09/12/15.
  */
-public class DevicesAdapter extends ArrayAdapter<Node> {
+public class BleDevicesAdapter extends ArrayAdapter<Node> {
 
     private Activity mContext;
     private List<Node> nodeList;
 
-    public DevicesAdapter(Activity context) {
+    public BleDevicesAdapter(Activity context) {
         super(context, R.layout.node_view_item);
         mContext = context;
         nodeList = new ArrayList<>();

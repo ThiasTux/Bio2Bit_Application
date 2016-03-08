@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".uicontroller.activities.ScanDeviceActivity">
+    tools:context=".uicontroller.activities.ScanBleDeviceActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,6 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/scan_device_layout" />
+    <include layout="@layout/scan_ble_device_layout"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -30,7 +30,6 @@ import butterknife.ButterKnife;
 public class DataActivity extends AppCompatActivity {
 
     private static final int NUM_TABS = 2;
-    private Manager mManager;
     private Node connectedNode;
     private ValuesFragment valuesFragment;
     private ChartsFragment chartsFragment;
@@ -45,7 +44,7 @@ public class DataActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        mManager = Manager.getSharedInstance();
+        Manager mManager = Manager.getSharedInstance();
         connectedNode = mManager.getNodeWithTag(getIntent().getStringExtra(Constants.NODE));
 
         mHandler = new Handler(new Handler.Callback() {
@@ -86,8 +85,7 @@ public class DataActivity extends AppCompatActivity {
         if (actionBar != null && connectedNode != null)
             actionBar.setTitle(connectedNode.getName());
 
-        boolean isTablet = getResources().getBoolean(R.bool.isTablet);
-        if (isTablet)
+        if (Utilities.isTablet(this))
             setupFragments();
         else
             setupTabs();
@@ -140,7 +138,7 @@ public class DataActivity extends AppCompatActivity {
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        Log.d(Constants.ST_TAG, "DataActivity destroyed!");
+        if(Constants.DEBUG) Log.d(Constants.TAG, "DataActivity destroyed!");
         connectedNode.disconnect();
     }
 }

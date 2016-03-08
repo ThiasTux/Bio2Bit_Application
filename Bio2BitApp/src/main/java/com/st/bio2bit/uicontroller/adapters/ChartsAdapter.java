@@ -12,6 +12,10 @@ import com.st.BlueSTSDK.Feature;
 import com.st.bio2bit.R;
 import com.st.bio2bit.uicontroller.activities.DataActivity;
 import com.st.bio2bit.uicontroller.views.ChartView;
+import com.st.bio2bit.uicontroller.views.chartsview.AccelerationChartView;
+import com.st.bio2bit.uicontroller.views.chartsview.GyroscopeChartView;
+import com.st.bio2bit.uicontroller.views.chartsview.MagnetometerChartView;
+import com.st.bio2bit.utilities.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +51,24 @@ public class ChartsAdapter extends android.support.v4.view.PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, final int position) {
-        View view = (new ChartView(mContext, features.get(position))).getView(container);
+        View view;
+        Constants.FeatureClass featureClass = Constants.FeatureClass.valueOf(
+                features.get(position).getClass().getSimpleName());
+        switch (featureClass){
+            case FeatureAcceleration:
+                view = new AccelerationChartView(mContext, features.get(position)).getView(container);
+                break;
+            case FeatureGyroscope:
+                view = new GyroscopeChartView(mContext, features.get(position)).getView(container);
+                break;
+            case FeatureMagnetometer:
+                view = new MagnetometerChartView(mContext, features.get(position)).getView(container);
+                break;
+
+            default:
+                view = new ChartView(mContext, features.get(position)).getView(container);
+                break;
+        }
         final int page = position;
         view.setOnClickListener(new View.OnClickListener() {
             @Override

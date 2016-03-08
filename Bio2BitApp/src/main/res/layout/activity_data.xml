@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".uicontroller.activities.ScanDeviceActivity"
+    tools:context=".uicontroller.activities.ScanBleDeviceActivity"
     android:id="@+id/dataActivityLayout">
 
     <include layout="@layout/data_layout" />

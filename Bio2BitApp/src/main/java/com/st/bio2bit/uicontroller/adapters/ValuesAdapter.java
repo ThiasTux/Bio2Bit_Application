@@ -51,7 +51,7 @@ public class ValuesAdapter extends RecyclerView.Adapter<ValuesAdapter.ViewHolder
         holder.valueLabel.setText(features.get(position).getName());
         final String featureClassName = features.get(position).getClass().getSimpleName();
         holder.value.setText("----");
-        Log.d(Constants.ST_TAG, "Listener added");
+        if(Constants.DEBUG) Log.d(Constants.TAG, "Listener added");
         features.get(position).removeAllFeatureListener();
         features.get(position).addFeatureListener(new Feature.FeatureListener() {
             @Override

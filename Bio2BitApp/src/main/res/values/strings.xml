@@ -14,7 +14,7 @@
     <string name="start_plot">Start Plot</string>
     <string name="stop_plot">Stop Plot</string>
     <string name="action_scan">Scan</string>
-    <string name="devices">Device list</string>
+    <string name="ble_devices">BLE Device list</string>
     <string name="action_stop">Stop</string>
     <string name="values">Values</string>
     <string name="charts">Charts</string>
@@ -22,4 +22,7 @@
     <string name="ecg_label">ECG</string>
     <string name="gsr_label">GSR</string>
     <string name="chart_label">Chart_Label</string>
+    <string name="scan_standard_devices">Scan Standard Devices</string>
+    <string name="scan_ble_devices">Scan BLE Devices</string>
+    <string name="standard_paired_devices">Paired devices</string>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="scan_device_layout" type="layout">@layout/scan_device_list</item>
+    <item name="scan_ble_device_layout" type="layout">@layout/scan_ble_device_list</item>
     <item name="data_layout" type="layout">@layout/activity_data_tab</item>
     <item id="isTablet" name="isTablet" type="bool">false</item>
 </resources>

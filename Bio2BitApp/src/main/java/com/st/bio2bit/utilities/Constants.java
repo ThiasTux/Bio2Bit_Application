@@ -21,20 +21,32 @@ import com.st.BlueSTSDK.Features.FeatureTemperature;
  */
 public class Constants {
 
-    public static final String ST_TAG = "STBlue_Hippo";
-
-    public static final String NODE = "com.st.stblue_hippo.NODE";
+    public static final boolean DEBUG = true;
+    public static final String TAG = "com.st.bio2bit";
+    public static final String NODE = "com.st.bio2bit.NODE";
 
     public static final int START_STREAM_VF = 1001;
     public static final int STOP_STREAM_VF = 2001;
     public static final int START_STREAM_CF = 1002;
     public static final int STOP_STREAM_CF = 2002;
 
-    public static final String START_RECORDING = "com.st.stblue_hippo.start_recording";
-    public static final String PAUSE_RECORDING = "com.st.stblue_hippo.pause_recording";
-    public static final String STOP_RECORDING = "com.st.stblue_hippo.stop_recording";
-    public static final String NEW_RECORDING = "com.st.stblue_hippo.new_recording";
-    public static final String START_SERVICE = "com.st.stblue_hippo.start_service";
+    public static final int REQUEST_DEVICE_PARING = 3001;
+
+    public static final String START_RECORDING = "com.st.bio2bit.start_recording";
+    public static final String PAUSE_RECORDING = "com.st.bio2bit.pause_recording";
+    public static final String STOP_RECORDING = "com.st.bio2bit.stop_recording";
+    public static final String NEW_RECORDING = "com.st.bio2bit.new_recording";
+    public static final String START_SERVICE = "com.st.bio2bit.start_service";
+
+    /**
+     * request id for the activity that will ask to the user to enable the bt
+     */
+    public static final int REQUEST_ENABLE_BT = 1;
+    /**
+     * request id for grant the location permission
+     */
+    public static final int REQUEST_LOCATION_ACCESS = 2;
+
     public static final Class[] valuesFeatures = new Class[]{
             FeaturePressure.class,
             FeatureHumidity.class,
@@ -59,7 +71,8 @@ public class Constants {
             FeatureGalvanicSkinResponse.class,
             FeatureGalvanicSkinResponseCompact.class,
     };
-    public static boolean IS_STREAMING_VF=false;
+
+    public static boolean IS_STREAMING_VF = false;
 
     public enum FeatureClass {
         FeatureAcceleration,
@@ -89,4 +102,8 @@ public class Constants {
         FeatureHeartRate,
         FeatureBreathingRate
     }
+
+    public static String[] supportedDevices = new String[]{
+            "Pulse Sensor"
+    };
 }

@@ -35,19 +35,19 @@ import android.widget.Toast;
 import com.st.BlueSTSDK.Manager;
 import com.st.BlueSTSDK.Node;
 import com.st.bio2bit.R;
-import com.st.bio2bit.uicontroller.adapters.DevicesAdapter;
+import com.st.bio2bit.uicontroller.adapters.BleDevicesAdapter;
 import com.st.bio2bit.utilities.Constants;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ScanDeviceActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
+public class ScanBleDeviceActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
 
     @Bind(R.id.toolbar) Toolbar toolbar;
-    @Bind(R.id.leDevices) AbsListView mDevices;
+    @Bind(R.id.ble_devices) AbsListView mDevices;
     @Bind(R.id.scan_swipe_layout) SwipeRefreshLayout mSwipeLayout;
 
-    private DevicesAdapter mAdapter;
+    private BleDevicesAdapter mAdapter;
 
     private static final int SCAN_PERIOD = 10000;
     private Handler mHanlder;
@@ -90,7 +90,7 @@ public class ScanDeviceActivity extends AppCompatActivity implements AdapterView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scan_device);
+        setContentView(R.layout.activity_scan_ble_device);
 
         ButterKnife.bind(this);
 
@@ -98,7 +98,7 @@ public class ScanDeviceActivity extends AppCompatActivity implements AdapterView
 
         ActionBar actionBar = getSupportActionBar();
         if(actionBar!=null)
-            actionBar.setTitle(R.string.devices);
+            actionBar.setTitle(R.string.ble_devices);
 
         mHanlder = new Handler();
 
@@ -106,7 +106,7 @@ public class ScanDeviceActivity extends AppCompatActivity implements AdapterView
         mManager.addListener(mManagerListener);
         mContext = this;
 
-        mAdapter = new DevicesAdapter(this);
+        mAdapter = new BleDevicesAdapter(this);
         mDevices.setAdapter(mAdapter);
 
         mSwipeLayout.setOnRefreshListener(this);
@@ -118,7 +118,7 @@ public class ScanDeviceActivity extends AppCompatActivity implements AdapterView
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         mMenu = menu;
-        getMenuInflater().inflate(R.menu.menu_scan_device, menu);
+        getMenuInflater().inflate(R.menu.menu_scan_ble_device, menu);
         if(mManager.isDiscovering())
             toggleToolbarActions(false);
         return true;

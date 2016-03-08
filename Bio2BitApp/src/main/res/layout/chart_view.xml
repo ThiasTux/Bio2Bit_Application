@@ -16,34 +16,67 @@
         android:textAppearance="@android:style/TextAppearance.Large" />
 
     <LinearLayout
+        android:id="@+id/button_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:orientation="horizontal"
-        android:id="@+id/button_layout">
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/start_plot_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start_plot"
-        android:visibility="visible"/>
+        <Button
+            android:id="@+id/start_plot_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_plot"
+            android:visibility="visible" />
 
-    <Button
-        android:id="@+id/stop_plot_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/stop_plot"
-        android:visibility="gone"/>
+        <Button
+            android:id="@+id/stop_plot_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stop_plot"
+            android:visibility="gone" />
 
     </LinearLayout>
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart_plot"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/chart_label"
-        android:layout_marginBottom="53dp"/>
+        android:layout_above="@+id/x_label"
+        android:id="@+id/chart_layout">
+
+        <TextView
+            android:id="@+id/y_label"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:rotation="-90"
+            android:text="y"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart_plot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="53dp" />
+
+        <TextView
+            android:id="@+id/x_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="timestamp"
+            android:layout_below="@+id/chart_plot"
+            android:background="@color/colorAccent"
+            android:textAlignment="center"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

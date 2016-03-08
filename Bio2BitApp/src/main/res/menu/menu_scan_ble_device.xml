@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".uicontroller.activities.ScanDeviceActivity">
+    tools:context=".uicontroller.activities.ScanBleDeviceActivity">
     <item
         android:id="@+id/action_scan"
         android:orderInCategory="100"
@@ -19,7 +19,7 @@
         android:visible="false"/>
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         android:title="@string/action_settings"
         app:showAsAction="never" />
 </menu>
