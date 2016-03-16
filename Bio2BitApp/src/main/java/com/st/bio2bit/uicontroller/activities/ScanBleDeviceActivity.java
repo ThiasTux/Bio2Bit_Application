@@ -343,8 +343,8 @@ public class ScanBleDeviceActivity extends AppCompatActivity implements AdapterV
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Node connectingNode = mAdapter.getItem(position);
         final ProgressDialog progressDialog = new ProgressDialog(mContext);
-        progressDialog.setTitle("Connecting");
-        progressDialog.setMessage("Connecting to node, please wait...");
+        progressDialog.setTitle(R.string.connecting_title);
+        progressDialog.setMessage(getResources().getString(R.string.connecting_message));
         connectingNode.addNodeStateListener(new Node.NodeStateListener() {
             @Override
             public void onStateChange(Node node, Node.State newState, Node.State prevState) {

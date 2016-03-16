@@ -36,6 +36,12 @@ public class AccelerationChartView extends ChartView {
                     @Override
                     public void run() {
                         LineData data = lineChart.getLineData();
+                        int entryCount = data.getDataSetByIndex(0).getEntryCount();
+                        if(entryCount > visibleX){
+                            data.removeEntry(0, 0);
+                            data.removeEntry(0, 1);
+                            data.removeEntry(0, 2);
+                        }
                         data.addXValue(String.valueOf(sample.timestamp));
                         data.addEntry(new Entry(FeatureAcceleration.getAccX(sample), data.getDataSetByIndex(0).getEntryCount()), 0);
                         data.addEntry(new Entry(FeatureAcceleration.getAccY(sample), data.getDataSetByIndex(1).getEntryCount()), 1);

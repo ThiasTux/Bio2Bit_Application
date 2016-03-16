@@ -118,7 +118,7 @@ public class ChartView extends View {
 
     }
 
-    private LineData setupSingleComponentData() {
+    protected LineData setupSingleComponentData() {
         LineData lineData = new LineData();
         lineData.addDataSet(setupDataset(R.color.colorX, feature.getName(), YAxis.AxisDependency.LEFT));
         return lineData;

@@ -13,6 +13,7 @@ import com.st.bio2bit.R;
 import com.st.bio2bit.uicontroller.activities.DataActivity;
 import com.st.bio2bit.uicontroller.views.ChartView;
 import com.st.bio2bit.uicontroller.views.chartsview.AccelerationChartView;
+import com.st.bio2bit.uicontroller.views.chartsview.ECGChartView;
 import com.st.bio2bit.uicontroller.views.chartsview.GyroscopeChartView;
 import com.st.bio2bit.uicontroller.views.chartsview.MagnetometerChartView;
 import com.st.bio2bit.utilities.Constants;
@@ -64,7 +65,9 @@ public class ChartsAdapter extends android.support.v4.view.PagerAdapter {
             case FeatureMagnetometer:
                 view = new MagnetometerChartView(mContext, features.get(position)).getView(container);
                 break;
-
+            case FeatureElectrocardiogramCompact:
+                view = new ECGChartView(mContext, features.get(position)).getView(container);
+                break;
             default:
                 view = new ChartView(mContext, features.get(position)).getView(container);
                 break;

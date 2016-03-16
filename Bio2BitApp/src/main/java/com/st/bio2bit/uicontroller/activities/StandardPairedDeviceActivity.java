@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.st.bio2bit.R;
 import com.st.bio2bit.uicontroller.adapters.ScannedStandardDeviceAdapter;
 import com.st.bio2bit.utilities.Constants;
-import com.st.bio2bit.utilities.Utilities;
+import com.st.bio2bit.utilities.Utils;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -56,7 +56,7 @@ public class StandardPairedDeviceActivity extends AppCompatActivity implements A
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         adapter = new ScannedStandardDeviceAdapter(new ArrayList<BluetoothDevice>());
-        if(Utilities.isTablet(this)){
+        if(Utils.isTablet(this)){
             mDevices.setLayoutManager(new GridLayoutManager(this, 2));
         } else {
             LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -159,7 +159,7 @@ public class StandardPairedDeviceActivity extends AppCompatActivity implements A
 
         if(bluetoothDevices.size()>0)
             for(BluetoothDevice device : bluetoothDevices){
-                if(Utilities.isDeviceSupported(device.getName()))
+                if(Utils.isDeviceSupported(device.getName()))
                     adapter.addDevice(device);
             }
         adapter.notifyDataSetChanged();
@@ -168,6 +168,8 @@ public class StandardPairedDeviceActivity extends AppCompatActivity implements A
     @Override
     public void onItemClick(View v, int position) {
         BluetoothDevice device = adapter.getItem(position);
-
+        Intent intent = new Intent(this, StDataActivity.class);
+        intent.putExtra(Constants.BLUETOOTH_DEVICE, device);
+        this.startActivity(intent);
     }
 }

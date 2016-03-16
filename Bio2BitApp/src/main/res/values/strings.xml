@@ -25,4 +25,9 @@
     <string name="scan_standard_devices">Scan Standard Devices</string>
     <string name="scan_ble_devices">Scan BLE Devices</string>
     <string name="standard_paired_devices">Paired devices</string>
+    <string name="connecting_title">Connecting</string>
+    <string name="connecting_message">Connecting to node, please wait…</string>
+    <string name="device_disconnected">Device disconnected.</string>
+    <string name="device_conn_failed">Connection failed.</string>
+    <string name="device_connected">Device connected successfully.</string>
 </resources>

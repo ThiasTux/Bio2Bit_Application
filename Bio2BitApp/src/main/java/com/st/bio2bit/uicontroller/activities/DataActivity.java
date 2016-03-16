@@ -18,7 +18,7 @@ import com.st.bio2bit.uicontroller.adapters.PagerAdapter;
 import com.st.bio2bit.uicontroller.fragments.ChartsFragment;
 import com.st.bio2bit.uicontroller.fragments.ValuesFragment;
 import com.st.bio2bit.utilities.Constants;
-import com.st.bio2bit.utilities.Utilities;
+import com.st.bio2bit.utilities.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,7 +67,7 @@ public class DataActivity extends AppCompatActivity {
                         return true;
                     case Constants.STOP_STREAM_CF:
                         Feature feature_stop = (Feature) msg.obj;
-                        if(!(Constants.IS_STREAMING_VF && Utilities.isValueFeature(feature_stop)))
+                        if(!(Constants.IS_STREAMING_VF && Utils.isValueFeature(feature_stop)))
                             connectedNode.disableNotification(feature_stop);
                     default:
                         return false;
@@ -85,7 +85,7 @@ public class DataActivity extends AppCompatActivity {
         if (actionBar != null && connectedNode != null)
             actionBar.setTitle(connectedNode.getName());
 
-        if (Utilities.isTablet(this))
+        if (Utils.isTablet(this))
             setupFragments();
         else
             setupTabs();
