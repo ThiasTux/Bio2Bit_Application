@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="bgw_patient_data"
+        android:title="Patient data">
+        <EditTextPreference
+            android:defaultValue="ST001"
+            android:key="bgw_patient_code"
+            android:title="Patient Code" />
+        <EditTextPreference
+            android:key="bgw_patient_name"
+            android:title="Patient Name" />
+        <MultiSelectListPreference
+            android:key="bgw_patient_sex"
+            android:title="Patient Sex" />
+        <com.st.bio2bit.uicontroller.DatePreference
+            android:defaultValue="1989-09-13"
+            android:key="bgw_patient_birthdate"
+            android:title="Patient Birthdate" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="bgw_vitals"
+        android:title="Vitals signals">
+        <PreferenceScreen
+            android:key="bgw_enable_vital_types"
+            android:summary="Enable each signal and set some parameters."
+            android:title="Enable vital signals">
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="bgw_enable_electrocardiogram"
+                android:title="Enable electrocardiogram" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="bgw_enable_accelerometers"
+                android:title="Enable accelerometers" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="bgw_enable_heart_rate"
+                android:title="Enable heart rate" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="bgw_enable_breathing_rate"
+                android:title="Enable breathing rate" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="bgw_enable_activity_and_position"
+                android:title="Enable activity and position" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="bgw_enable_battery_level"
+                android:title="Enable battery level" />
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="bgw_enable_firmware_log"
+                android:title="Enable firmware log" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="bgw_enable_rr_intervals"
+                android:title="Enable RR intervals" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="bgw_enable_bio-impedance"
+                android:title="Enable bio-impedance" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <!-- Medical protocols parameters -->
+    <PreferenceCategory
+        android:key="bgw_medical_protocols"
+        android:title="Medical Protocols">
+
+        <PreferenceScreen
+            android:summary="Set parameters for each medical protocol."
+            android:title="Set medical protocols">
+
+            <!-- Low Heart rate parameters -->
+            <PreferenceScreen
+                android:key="bgw_low_heart_rate"
+                android:title="Low Heart Rate">
+                <CheckBoxPreference
+                    android:key="bgw_low_heart_rate_enable"
+                    android:title="Enable" />
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dependency="bgw_low_heart_rate_enable"
+                    android:entries="@array/bgw_suppress_entries"
+                    android:entryValues="@array/bgw_suppress_entry_values"
+                    android:key="bgw_low_heart_rate_suppress"
+                    android:title="Suppress" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_low_heart_rate_enable"
+                    android:entries="@array/bgw_num_max_entries"
+                    android:entryValues="@array/bgw_num_max_entry_values"
+                    android:key="bgw_low_heart_rate_num_max"
+                    android:title="Num max" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_low_heart_rate_enable"
+                    android:entries="@array/bgw_interval_entries"
+                    android:entryValues="@array/bgw_interval_entry_values"
+                    android:key="bgw_low_heart_rate_interval"
+                    android:title="Interval" />
+                <ListPreference
+                    android:defaultValue="60"
+                    android:dependency="bgw_low_heart_rate_enable"
+                    android:entries="@array/bgw_periodicity_entries"
+                    android:entryValues="@array/bgw_periodicity_entry_values"
+                    android:key="bgw_low_heart_rate_periodicity"
+                    android:title="Periodicity" />
+                <PreferenceCategory android:title="Threshold">
+                    <ListPreference
+                        android:defaultValue="40"
+                        android:dependency="bgw_low_heart_rate_enable"
+                        android:entries="@array/bgw_threshold_low_bpm_entries"
+                        android:entryValues="@array/bgw_threshold_low_bpm_entry_values"
+                        android:key="bgw_low_heart_rate_threshold_bpm"
+                        android:title="Threshold - bpm" />
+                </PreferenceCategory>
+            </PreferenceScreen>
+            <!-- End of Low Heart rate parameters -->
+
+            <!-- High Heart rate and Activity parameters -->
+            <PreferenceScreen
+                android:key="bgw_high_heart_rate_activity_activity"
+                android:title="High Heart Rate and Activity">
+                <CheckBoxPreference
+                    android:key="bgw_high_heart_rate_activity_enable"
+                    android:title="Enable" />
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dependency="bgw_high_heart_rate_activity_enable"
+                    android:entries="@array/bgw_suppress_entries"
+                    android:entryValues="@array/bgw_suppress_entry_values"
+                    android:key="bgw_high_heart_rate_activity_suppress"
+                    android:title="Suppress" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_high_heart_rate_activity_enable"
+                    android:entries="@array/bgw_num_max_entries"
+                    android:entryValues="@array/bgw_num_max_entry_values"
+                    android:key="bgw_high_heart_rate_activity_num_max"
+                    android:title="Num max" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_high_heart_rate_activity_enable"
+                    android:entries="@array/bgw_interval_entries"
+                    android:entryValues="@array/bgw_interval_entry_values"
+                    android:key="bgw_high_heart_rate_activity_interval"
+                    android:title="Interval" />
+                <ListPreference
+                    android:defaultValue="60"
+                    android:dependency="bgw_high_heart_rate_activity_enable"
+                    android:entries="@array/bgw_periodicity_entries"
+                    android:entryValues="@array/bgw_periodicity_entry_values"
+                    android:key="bgw_high_heart_rate_activity_periodicity"
+                    android:title="Periodicity" />
+                <PreferenceCategory android:title="Threshold">
+                    <ListPreference
+                        android:defaultValue="140"
+                        android:dependency="bgw_high_heart_rate_activity_enable"
+                        android:entries="@array/bgw_threshold_high_bpm_entries"
+                        android:entryValues="@array/bgw_threshold_high_bpm_entry_values"
+                        android:key="bgw_high_heart_rate_activity_threshold_bpm"
+                        android:title="Threshold - bpm" />
+                    <ListPreference
+                        android:defaultValue="10"
+                        android:dependency="bgw_high_heart_rate_activity_enable"
+                        android:entries="@array/bgw_threshold_acts_entries"
+                        android:entryValues="@array/bgw_threshold_acts_entry_values"
+                        android:key="bgw_high_heart_rate_activity_threshold_acts"
+                        android:title="Threshold - acts" />
+                </PreferenceCategory>
+            </PreferenceScreen>
+            <!-- End of High Heart rate and Activity parameters -->
+
+            <!-- Low Breathing rate parameters -->
+            <PreferenceScreen
+                android:key="bgw_low_breathing_rate"
+                android:title="Low Breathing Rate">
+                <CheckBoxPreference
+                    android:key="bgw_low_breathing_rate_enable"
+                    android:title="Enable" />
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dependency="bgw_low_breathing_rate_enable"
+                    android:entries="@array/bgw_suppress_entries"
+                    android:entryValues="@array/bgw_suppress_entry_values"
+                    android:key="bgw_low_breathing_rate_suppress"
+                    android:title="Suppress" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_low_breathing_rate_enable"
+                    android:entries="@array/bgw_num_max_entries"
+                    android:entryValues="@array/bgw_num_max_entry_values"
+                    android:key="bgw_low_breathing_rate_num_max"
+                    android:title="Num max" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_low_breathing_rate_enable"
+                    android:entries="@array/bgw_interval_entries"
+                    android:entryValues="@array/bgw_interval_entry_values"
+                    android:key="bgw_low_breathing_rate_interval"
+                    android:title="Interval" />
+                <ListPreference
+                    android:defaultValue="60"
+                    android:dependency="bgw_low_breathing_rate_enable"
+                    android:entries="@array/bgw_periodicity_entries"
+                    android:entryValues="@array/bgw_periodicity_entry_values"
+                    android:key="bgw_low_breathing_rate_periodicity"
+                    android:title="Periodicity" />
+                <PreferenceCategory android:title="Threshold">
+                    <ListPreference
+                        android:defaultValue="10"
+                        android:dependency="bgw_low_breathing_rate_enable"
+                        android:entries="@array/bgw_threshold_breath_entries"
+                        android:entryValues="@array/bgw_threshold_breath_entry_values"
+                        android:key="bgw_low_breathing_rate_threshold_breath"
+                        android:title="Threshold - breaths" />
+                </PreferenceCategory>
+            </PreferenceScreen>
+            <!-- End of Low Breathing rate parameters -->
+
+            <!-- High Breathing rate and Activity parameters -->
+            <PreferenceScreen
+                android:key="bgw_high_breathing_rate_activity"
+                android:title="High Breathing Rate and Activity">
+                <CheckBoxPreference
+                    android:key="bgw_high_breathing_rate_activity_enable"
+                    android:title="Enable" />
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dependency="bgw_high_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_suppress_entries"
+                    android:entryValues="@array/bgw_suppress_entry_values"
+                    android:key="bgw_high_breathing_rate_activity_suppress"
+                    android:title="Suppress" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_high_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_num_max_entries"
+                    android:entryValues="@array/bgw_num_max_entry_values"
+                    android:key="bgw_high_breathing_rate_activity_num_max"
+                    android:title="Num max" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_high_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_interval_entries"
+                    android:entryValues="@array/bgw_interval_entry_values"
+                    android:key="bgw_high_breathing_rate_activity_interval"
+                    android:title="Interval" />
+                <ListPreference
+                    android:defaultValue="60"
+                    android:dependency="bgw_high_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_periodicity_entries"
+                    android:entryValues="@array/bgw_periodicity_entry_values"
+                    android:key="bgw_high_breathing_rate_activity_periodicity"
+                    android:title="Periodicity" />
+                <PreferenceCategory android:title="Threshold">
+                    <ListPreference
+                        android:defaultValue="20"
+                        android:dependency="bgw_high_breathing_rate_activity_enable"
+                        android:entries="@array/bgw_threshold_breath_entries"
+                        android:entryValues="@array/bgw_threshold_breath_entry_values"
+                        android:key="bgw_high_breathing_rate_activity_threshold_breath"
+                        android:title="Threshold - breaths" />
+                    <ListPreference
+                        android:defaultValue="10"
+                        android:dependency="bgw_high_breathing_rate_activity_enable"
+                        android:entries="@array/bgw_threshold_acts_entries"
+                        android:entryValues="@array/bgw_threshold_acts_entry_values"
+                        android:key="bgw_high_breathing_rate_activity_threshold_acts"
+                        android:title="Threshold - acts" />
+                </PreferenceCategory>
+            </PreferenceScreen>
+            <!-- End of High Breathing rate and Activity parameters -->
+
+            <!-- Pauses parameters -->
+            <PreferenceScreen
+                android:key="bgw_pauses"
+                android:title="Pauses">
+                <CheckBoxPreference
+                    android:key="bgw_pauses_enable"
+                    android:title="Enable" />
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dependency="bgw_pauses_enable"
+                    android:entries="@array/bgw_suppress_entries"
+                    android:entryValues="@array/bgw_suppress_entry_values"
+                    android:key="bgw_pauses_suppress"
+                    android:title="Suppress" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_pauses_enable"
+                    android:entries="@array/bgw_num_max_entries"
+                    android:entryValues="@array/bgw_num_max_entry_values"
+                    android:key="bgw_pauses_num_max"
+                    android:title="Num max" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_pauses_enable"
+                    android:entries="@array/bgw_interval_entries"
+                    android:entryValues="@array/bgw_interval_entry_values"
+                    android:key="bgw_pauses_interval"
+                    android:title="Interval" />
+                <PreferenceCategory android:title="Threshold">
+                    <CheckBoxPreference
+                        android:defaultValue="true"
+                        android:dependency="bgw_pauses_enable"
+                        android:key="bgw_pauses_threshold_type"
+                        android:summary="If enabled threshold for pauses will be set as percentage instead of using absolute values."
+                        android:title="Use percentage as threshold" />
+                    <ListPreference
+                        android:defaultValue="150"
+                        android:dependency="bgw_pauses_enable"
+                        android:entries="@array/bgw_threshold_pauses_percentage_entries"
+                        android:entryValues="@array/bgw_threshold_pauses_percentage_entry_values"
+                        android:key="bgw_pauses_threshold_breath"
+                        android:title="Threshold - percentage" />
+                    <ListPreference
+                        android:defaultValue="2500"
+                        android:dependency="bgw_pauses_enable"
+                        android:entries="@array/bgw_threshold_pauses_absolute_entries"
+                        android:entryValues="@array/bgw_threshold_pauses_absolute_entry_values"
+                        android:key="bgw_pauses_threshold_acts"
+                        android:title="Threshold - absolute" />
+                </PreferenceCategory>
+                <ListPreference
+                    android:defaultValue="8"
+                    android:dependency="bgw_pauses_enable"
+                    android:entries="@array/bgw_threshold_rr_entries"
+                    android:entryValues="@array/bgw_threshold_rr_entry_values"
+                    android:key="bgw_pauses_num_rr"
+                    android:title="Num RR" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_pauses_enable"
+                    android:entries="@array/bgw_threshold_rolling_num_entries"
+                    android:entryValues="@array/bgw_threshold_rolling_num_entry_values"
+                    android:key="bgw_pauses_rolling_num"
+                    android:title="Rolling Num" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_pauses_enable"
+                    android:entries="@array/bgw_threshold_rolling_len_entries"
+                    android:entryValues="@array/bgw_threshold_rolling_len_entry_values"
+                    android:key="bgw_pauses_rolling_len"
+                    android:title="Rolling Len" />
+            </PreferenceScreen>
+            <!-- End of Pauses parameters -->
+
+            <!-- Arrhythmia onset parameters -->
+            <PreferenceScreen
+                android:key="bgw_arrhythmia_onset"
+                android:title="Arrhythmia Onset">
+                <CheckBoxPreference
+                    android:key="bgw_arrhythmia_onset_enable"
+                    android:title="Enable" />
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dependency="bgw_arrhythmia_onset_enable"
+                    android:entries="@array/bgw_suppress_entries"
+                    android:entryValues="@array/bgw_suppress_entry_values"
+                    android:key="bgw_arrhythmia_onset_suppress"
+                    android:title="Suppress" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_arrhythmia_onset_enable"
+                    android:entries="@array/bgw_num_max_entries"
+                    android:entryValues="@array/bgw_num_max_entry_values"
+                    android:key="bgw_arrhythmia_onset_num_max"
+                    android:title="Num max" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_arrhythmia_onset_enable"
+                    android:entries="@array/bgw_interval_entries"
+                    android:entryValues="@array/bgw_interval_entry_values"
+                    android:key="bgw_arrhythmia_onset_interval"
+                    android:title="Interval" />
+                <PreferenceCategory android:title="Threshold">
+                    <ListPreference
+                        android:defaultValue="60"
+                        android:dependency="bgw_arrhythmia_onset_enable"
+                        android:entries="@array/bgw_threshold_arrhythmia_bpm_entries"
+                        android:entryValues="@array/bgw_threshold_arrhythmia_bpm_entry_values"
+                        android:key="bgw_arrhythmia_onset_threshold_bpm"
+                        android:title="Threshold - bpm" />
+                    <ListPreference
+                        android:defaultValue="20"
+                        android:dependency="bgw_arrhythmia_onset_enable"
+                        android:entries="@array/bgw_threshold_arrhythmia_percentage_entries"
+                        android:entryValues="@array/bgw_threshold_arrhythmia_percentage_entry_values"
+                        android:key="bgw_arrhythmia_onset_threshold_percentage"
+                        android:title="Threshold - percentage" />
+                </PreferenceCategory>
+                <ListPreference
+                    android:defaultValue="8"
+                    android:dependency="bgw_arrhythmia_onset_enable"
+                    android:entries="@array/bgw_threshold_rr_entries"
+                    android:entryValues="@array/bgw_threshold_rr_entry_values"
+                    android:key="bgw_arrhythmia_onset_num_rr"
+                    android:title="Num RR" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_arrhythmia_onset_enable"
+                    android:entries="@array/bgw_threshold_rolling_num_entries"
+                    android:entryValues="@array/bgw_threshold_rolling_num_entry_values"
+                    android:key="bgw_arrhythmia_onset_rolling_num"
+                    android:title="Rolling Num" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_arrhythmia_onset_enable"
+                    android:entries="@array/bgw_threshold_rolling_len_entries"
+                    android:entryValues="@array/bgw_threshold_rolling_len_entry_values"
+                    android:key="bgw_arrhythmia_onset_rolling_len"
+                    android:title="Rolling Len" />
+            </PreferenceScreen>
+            <!-- End of Arrhythmia onset parameters -->
+
+            <!-- Low Heart rate and Activity parameters -->
+            <PreferenceScreen
+                android:key="bgw_low_heart_rate_activity"
+                android:title="Low Heart Rate and Activity">
+                <CheckBoxPreference
+                    android:key="bgw_low_heart_rate_activity_activity_enable"
+                    android:title="Enable" />
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dependency="bgw_low_heart_rate_activity_activity_enable"
+                    android:entries="@array/bgw_suppress_entries"
+                    android:entryValues="@array/bgw_suppress_entry_values"
+                    android:key="bgw_low_heart_rate_activity_activity_suppress"
+                    android:title="Suppress" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_low_heart_rate_activity_activity_enable"
+                    android:entries="@array/bgw_num_max_entries"
+                    android:entryValues="@array/bgw_num_max_entry_values"
+                    android:key="bgw_low_heart_rate_activity_activity_num_max"
+                    android:title="Num max" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_low_heart_rate_activity_activity_enable"
+                    android:entries="@array/bgw_interval_entries"
+                    android:entryValues="@array/bgw_interval_entry_values"
+                    android:key="bgw_low_heart_rate_activity_activity_interval"
+                    android:title="Interval" />
+                <ListPreference
+                    android:defaultValue="60"
+                    android:dependency="bgw_low_heart_rate_activity_activity_enable"
+                    android:entries="@array/bgw_periodicity_entries"
+                    android:entryValues="@array/bgw_periodicity_entry_values"
+                    android:key="bgw_low_heart_rate_activity_activity_periodicity"
+                    android:title="Periodicity" />
+                <PreferenceCategory android:title="Threshold">
+                    <ListPreference
+                        android:defaultValue="50"
+                        android:dependency="bgw_low_heart_rate_activity_activity_enable"
+                        android:entries="@array/bgw_threshold_low_bpm_entries"
+                        android:entryValues="@array/bgw_threshold_low_bpm_entry_values"
+                        android:key="bgw_low_heart_rate_activity_activity_threshold_breath"
+                        android:title="Threshold - bpm" />
+                    <ListPreference
+                        android:defaultValue="10"
+                        android:dependency="bgw_low_heart_rate_activity_activity_enable"
+                        android:entries="@array/bgw_threshold_acts_entries"
+                        android:entryValues="@array/bgw_threshold_acts_entry_values"
+                        android:key="bgw_low_heart_rate_activity_activity_threshold_acts"
+                        android:title="Threshold - acts" />
+                </PreferenceCategory>
+            </PreferenceScreen>
+            <!-- End of Low Heart rate and Activity parameters -->
+
+            <!-- High Heart rate parameters -->
+            <PreferenceScreen
+                android:key="bgw_high_heart_rate"
+                android:title="High Heart Rate">
+                <CheckBoxPreference
+                    android:key="bgw_high_heart_rate_activity_enable"
+                    android:title="Enable" />
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dependency="bgw_high_heart_rate_activity_enable"
+                    android:entries="@array/bgw_suppress_entries"
+                    android:entryValues="@array/bgw_suppress_entry_values"
+                    android:key="bgw_high_heart_rate_activity_suppress"
+                    android:title="Suppress" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_high_heart_rate_activity_enable"
+                    android:entries="@array/bgw_num_max_entries"
+                    android:entryValues="@array/bgw_num_max_entry_values"
+                    android:key="bgw_high_heart_rate_activity_num_max"
+                    android:title="Num max" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_high_heart_rate_activity_enable"
+                    android:entries="@array/bgw_interval_entries"
+                    android:entryValues="@array/bgw_interval_entry_values"
+                    android:key="bgw_high_heart_rate_activity_interval"
+                    android:title="Interval" />
+                <ListPreference
+                    android:defaultValue="60"
+                    android:dependency="bgw_high_heart_rate_activity_enable"
+                    android:entries="@array/bgw_periodicity_entries"
+                    android:entryValues="@array/bgw_periodicity_entry_values"
+                    android:key="bgw_high_heart_rate_activity_periodicity"
+                    android:title="Periodicity" />
+                <PreferenceCategory android:title="Threshold">
+                    <ListPreference
+                        android:defaultValue="20"
+                        android:dependency="bgw_high_heart_rate_activity_enable"
+                        android:entries="@array/bgw_threshold_high_bpm_entries"
+                        android:entryValues="@array/bgw_threshold_high_bpm_entry_values"
+                        android:key="bgw_high_heart_rate_activity_threshold_bpm"
+                        android:title="Threshold - bpm" />
+                </PreferenceCategory>
+            </PreferenceScreen>
+            <!-- End of High Heart rate parameters -->
+
+            <!-- Low Breathing rate and Activity parameters -->
+            <PreferenceScreen
+                android:key="bgw_low_breathing_rate_activity"
+                android:title="Low Breathing Rate and Activity">
+                <CheckBoxPreference
+                    android:key="bgw_low_breathing_rate_activity_enable"
+                    android:title="Enable" />
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dependency="bgw_low_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_suppress_entries"
+                    android:entryValues="@array/bgw_suppress_entry_values"
+                    android:key="bgw_low_breathing_rate_activity_suppress"
+                    android:title="Suppress" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_low_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_num_max_entries"
+                    android:entryValues="@array/bgw_num_max_entry_values"
+                    android:key="bgw_low_breathing_rate_activity_num_max"
+                    android:title="Num max" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_low_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_interval_entries"
+                    android:entryValues="@array/bgw_interval_entry_values"
+                    android:key="bgw_low_breathing_rate_activity_interval"
+                    android:title="Interval" />
+                <ListPreference
+                    android:defaultValue="60"
+                    android:dependency="bgw_low_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_periodicity_entries"
+                    android:entryValues="@array/bgw_periodicity_entry_values"
+                    android:key="bgw_low_breathing_rate_activity_periodicity"
+                    android:title="Periodicity" />
+                <PreferenceCategory android:title="Threshold">
+                    <ListPreference
+                        android:defaultValue="10"
+                        android:dependency="bgw_low_breathing_rate_activity_enable"
+                        android:entries="@array/bgw_threshold_breath_entries"
+                        android:entryValues="@array/bgw_threshold_breath_entry_values"
+                        android:key="bgw_low_breathing_rate_activity_threshold_breath"
+                        android:title="Threshold - breaths" />
+                    <ListPreference
+                        android:defaultValue="10"
+                        android:dependency="bgw_low_breathing_rate_activity_enable"
+                        android:entries="@array/bgw_threshold_acts_entries"
+                        android:entryValues="@array/bgw_threshold_acts_entry_values"
+                        android:key="bgw_low_breathing_rate_activity_threshold_acts"
+                        android:title="Threshold - acts" />
+                </PreferenceCategory>
+            </PreferenceScreen>
+            <!-- End of Low Breathing rate and Activity parameters -->
+
+            <!-- High Breathing rate parameters -->
+            <PreferenceScreen
+                android:key="bgw_high_breathing_rate"
+                android:title="High Breathing Rate">
+                <CheckBoxPreference
+                    android:key="bgw_high_breathing_rate_activity_enable"
+                    android:title="Enable" />
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dependency="bgw_high_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_suppress_entries"
+                    android:entryValues="@array/bgw_suppress_entry_values"
+                    android:key="bgw_high_breathing_rate_activity_suppress"
+                    android:title="Suppress" />
+                <ListPreference
+                    android:defaultValue="4"
+                    android:dependency="bgw_high_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_num_max_entries"
+                    android:entryValues="@array/bgw_num_max_entry_values"
+                    android:key="bgw_high_breathing_rate_activity_num_max"
+                    android:title="Num max" />
+                <ListPreference
+                    android:defaultValue="5"
+                    android:dependency="bgw_high_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_interval_entries"
+                    android:entryValues="@array/bgw_interval_entry_values"
+                    android:key="bgw_high_breathing_rate_activity_interval"
+                    android:title="Interval" />
+                <ListPreference
+                    android:defaultValue="60"
+                    android:dependency="bgw_high_breathing_rate_activity_enable"
+                    android:entries="@array/bgw_periodicity_entries"
+                    android:entryValues="@array/bgw_periodicity_entry_values"
+                    android:key="bgw_high_breathing_rate_activity_periodicity"
+                    android:title="Periodicity" />
+                <PreferenceCategory android:title="Threshold">
+                    <ListPreference
+                        android:defaultValue="20"
+                        android:dependency="bgw_high_breathing_rate_activity_enable"
+                        android:entries="@array/bgw_threshold_breath_entries"
+                        android:entryValues="@array/bgw_threshold_breath_entry_values"
+                        android:key="bgw_high_breathing_rate_activity_threshold_breath"
+                        android:title="Threshold - breaths" />
+                    <ListPreference
+                        android:defaultValue="10"
+                        android:dependency="bgw_high_breathing_rate_activity_enable"
+                        android:entries="@array/bgw_threshold_acts_entries"
+                        android:entryValues="@array/bgw_threshold_acts_entry_values"
+                        android:key="bgw_high_breathing_rate_activity_threshold_acts"
+                        android:title="Threshold - acts" />
+                </PreferenceCategory>
+            </PreferenceScreen>
+            <!-- End High Breathing rate parameters -->
+            
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+    <!-- End of Medical protocols parameters -->
+
+</PreferenceScreen>

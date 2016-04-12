@@ -16,7 +16,7 @@ import com.st.bio2bit.uicontroller.views.chartsview.AccelerationChartView;
 import com.st.bio2bit.uicontroller.views.chartsview.ECGChartView;
 import com.st.bio2bit.uicontroller.views.chartsview.GyroscopeChartView;
 import com.st.bio2bit.uicontroller.views.chartsview.MagnetometerChartView;
-import com.st.bio2bit.utilities.Constants;
+import com.st.bio2bit.utilities.Const;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +53,7 @@ public class ChartsAdapter extends android.support.v4.view.PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, final int position) {
         View view;
-        Constants.FeatureClass featureClass = Constants.FeatureClass.valueOf(
+        Const.FeatureClass featureClass = Const.FeatureClass.valueOf(
                 features.get(position).getClass().getSimpleName());
         switch (featureClass){
             case FeatureAcceleration:

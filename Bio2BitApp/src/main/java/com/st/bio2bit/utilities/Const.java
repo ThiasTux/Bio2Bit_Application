@@ -19,7 +19,7 @@ import com.st.BlueSTSDK.Features.FeatureTemperature;
 /**
  * Created by mathias on 11/01/16.
  */
-public class Constants {
+public class Const {
 
     public static final boolean DEBUG = true;
     public static final String TAG = "com.st.bio2bit";
@@ -74,6 +74,9 @@ public class Constants {
             FeatureGalvanicSkinResponseCompact.class,
     };
 
+    public static final int LITTLE_ENDIAN = 0;
+    public static final int BIG_ENDIAN = 1;
+
     public static boolean IS_STREAMING_VF = false;
 
     public enum FeatureClass {
@@ -108,64 +111,4 @@ public class Constants {
     public static String[] supportedDevices = new String[]{
             "Pulse Sensor"
     };
-
-    public enum BGWCommandID {
-        cfgReq((byte) 2),
-        cfgRsp((byte) 3),
-        setOpModeReq((byte) 4),
-        setOpModeRsp((byte) 5),
-        shutdownReq((byte) 6),
-        shutdownRsp((byte) 7),
-        identifyReq((byte) 8),
-        identifyRsp((byte) 9),
-        getInfoReq((byte) 10),
-        getInfoRsp((byte) 11),
-        notifInd((byte) 12),
-        notifRsp((byte) 13),
-        startUploadReq((byte) 128),
-        startUploadRsp((byte) 129),
-        continueUploadReq((byte) 130),
-        continueUploadRsp((byte) 131),
-        pushDataInd((byte) 132),
-        pushDataRsp((byte) 133),
-        startTestReq((byte) 200),
-        startTestRsp((byte) 201),
-        stopTestReq((byte) 202),
-        stopTestRsp((byte) 203),
-        fotaWriteReq((byte) 210),
-        fotaWriteRsp((byte) 211),
-        genericErrorRsp((byte) 251);
-
-        private final byte id;
-
-        BGWCommandID(byte id) {
-            this.id = id;
-        }
-    }
-
-    public enum BGWClusterID {
-        syncSettings((byte) 1),
-        dataElementSettings((byte) 2),
-        notifSettings((byte) 3),
-        medProtSettings((byte) 4),
-        algoSettings((byte) 5),
-        miscSettings((byte) 6),
-        infoType((byte) 7),
-        about((byte) 8),
-        opMode((byte) 9),
-        vitalsTypeInt((byte) 10),
-        uploadComplete((byte) 11),
-        eventNotif((byte) 12),
-        negAck((byte) 13),
-        currLogId((byte) 14),
-        shutdownType((byte) 15),
-        vitalsData((byte) 241),
-        fwChunk((byte) 242);
-
-        private final byte id;
-
-        BGWClusterID(byte id) {
-            this.id = id;
-        }
-    }
 }

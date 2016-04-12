@@ -30,4 +30,6 @@
     <string name="device_disconnected">Device disconnected.</string>
     <string name="device_conn_failed">Connection failed.</string>
     <string name="device_connected">Device connected successfully.</string>
+    <string name="set_parameters">Set Parameters</string>
+    <string name="save">Save</string>
 </resources>

@@ -142,4 +142,5 @@ public class ScanStandardDeviceActivity extends Activity implements ScannedStand
         BluetoothDevice device = adapter.getItem(position);
         device.createBond();
     }
+
 }

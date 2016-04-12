@@ -19,7 +19,7 @@ import com.st.BlueSTSDK.Node;
 import com.st.bio2bit.R;
 import com.st.bio2bit.uicontroller.activities.DataActivity;
 import com.st.bio2bit.uicontroller.adapters.ValuesAdapter;
-import com.st.bio2bit.utilities.Constants;
+import com.st.bio2bit.utilities.Const;
 
 import java.util.List;
 
@@ -114,7 +114,7 @@ public class ValuesFragment extends Fragment {
 
     @OnClick(R.id.start_log)
     public void startAllValues() {
-        Message message = handler.obtainMessage(Constants.START_STREAM_VF);
+        Message message = handler.obtainMessage(Const.START_STREAM_VF);
         handler.sendMessage(message);
         stopLogFab.setVisibility(View.VISIBLE);
         startLogFab.setVisibility(View.GONE);
@@ -122,7 +122,7 @@ public class ValuesFragment extends Fragment {
 
     @OnClick(R.id.stop_log)
     public void stopAllValues(){
-        Message message = handler.obtainMessage(Constants.STOP_STREAM_VF);
+        Message message = handler.obtainMessage(Const.STOP_STREAM_VF);
         handler.sendMessage(message);
         valuesAdapter.notifyDataSetChanged();
         startLogFab.setVisibility(View.VISIBLE);

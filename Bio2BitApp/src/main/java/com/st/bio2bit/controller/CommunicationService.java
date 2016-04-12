@@ -12,7 +12,7 @@ import com.st.BlueSTSDK.Manager;
 import com.st.BlueSTSDK.Node;
 import com.st.bio2bit.R;
 import com.st.bio2bit.uicontroller.activities.DataActivity;
-import com.st.bio2bit.utilities.Constants;
+import com.st.bio2bit.utilities.Const;
 
 public class CommunicationService extends Service {
 
@@ -36,15 +36,15 @@ public class CommunicationService extends Service {
         mManager = Manager.getSharedInstance();
 
         Intent startRecordingIntent = new Intent(this, CommunicationService.class);
-        startRecordingIntent.setAction(Constants.START_RECORDING);
+        startRecordingIntent.setAction(Const.START_RECORDING);
         pstartRecordingIntent = PendingIntent.getService(this, 0, startRecordingIntent, 0);
 
         Intent pauseRecordingIntent = new Intent(this, CommunicationService.class);
-        pauseRecordingIntent.setAction(Constants.PAUSE_RECORDING);
+        pauseRecordingIntent.setAction(Const.PAUSE_RECORDING);
         ppauseRecordingIntent = PendingIntent.getService(this, 0, pauseRecordingIntent, 0);
 
         Intent stopRecordingIntent = new Intent(this, CommunicationService.class);
-        stopRecordingIntent.setAction(Constants.STOP_RECORDING);
+        stopRecordingIntent.setAction(Const.STOP_RECORDING);
         pstopRecordingIntent = PendingIntent.getService(this, 0, stopRecordingIntent, 0);
 
         icon = BitmapFactory.decodeResource(getResources(),
@@ -53,22 +53,22 @@ public class CommunicationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int starId){
-        if(intent.getAction().equals(Constants.START_SERVICE)){
+        if(intent.getAction().equals(Const.START_SERVICE)){
             isSessionRecording = true;
 
             Intent notificationIntent = new Intent(this, DataActivity.class);
-            notificationIntent.setAction(Constants.NEW_RECORDING);
+            notificationIntent.setAction(Const.NEW_RECORDING);
             notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                     | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             pendingIntent = PendingIntent.getActivity(this, 0,
                     notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             mNotificationManager = (NotificationManager) this.getSystemService(NOTIFICATION_SERVICE);
-        } else if (intent.getAction().equals(Constants.START_RECORDING)) {
+        } else if (intent.getAction().equals(Const.START_RECORDING)) {
             startRecording();
-        } else if (intent.getAction().equals(Constants.PAUSE_RECORDING)) {
+        } else if (intent.getAction().equals(Const.PAUSE_RECORDING)) {
             pauseRecording();
-        } else if (intent.getAction().equals(Constants.STOP_RECORDING)) {
+        } else if (intent.getAction().equals(Const.STOP_RECORDING)) {
             stopRecording();
         }
 

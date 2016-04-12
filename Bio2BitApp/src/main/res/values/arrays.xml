@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="bgw_suppress_entries">
+        <item>disabled</item>
+        <item>1 min</item>
+        <item>2 min</item>
+        <item>3 min</item>
+    </string-array>
+    <string-array name="bgw_suppress_entry_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="bgw_num_max_entries">
+        <item>1 notif</item>
+        <item>2 notif</item>
+        <item>3 notif</item>
+        <item>4 notif</item>
+    </string-array>
+    <string-array name="bgw_num_max_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="bgw_interval_entries">
+        <item>1 min</item>
+        <item>5 min</item>
+        <item>10 min</item>
+        <item>30 min</item>
+        <item>1 h</item>
+        <item>2 h</item>
+        <item>5 h</item>
+    </string-array>
+    <string-array name="bgw_interval_entry_values">
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+    </string-array>
+
+    <string-array name="bgw_periodicity_entries">
+        <item>30 sec</item>
+        <item>1 min</item>
+        <item>2 min</item>
+        <item>3 min</item>
+        <item>4 min</item>
+    </string-array>
+    <string-array name="bgw_periodicity_entry_values">
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>180</item>
+        <item>240</item>
+    </string-array>
+
+    <string-array name="bgw_threshold_low_bpm_entries">
+        <item>40 bpm</item>
+        <item>50 bpm</item>
+        <item>60 bpm</item>
+        <item>80 bpm</item>
+        <item>100 bpm</item>
+    </string-array>
+    <string-array name="bgw_threshold_low_bpm_entry_values">
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>80</item>
+        <item>100</item>
+    </string-array>
+    
+    <string-array name="bgw_threshold_high_bpm_entries">
+        <item>80 bpm</item>
+        <item>100 bpm</item>
+        <item>120 bpm</item>
+        <item>140 bpm</item>
+        <item>150 bpm</item>
+        <item>180 bpm</item>
+    </string-array>
+    <string-array name="bgw_threshold_high_bpm_entry_values">
+        <item>80</item>
+        <item>100</item>
+        <item>120</item>
+        <item>140</item>
+        <item>150</item>
+        <item>180</item>
+    </string-array>
+    
+    <string-array name="bgw_threshold_acts_entries">
+        <item>5 acts</item>
+        <item>10 acts</item>
+        <item>20 acts</item>
+        <item>30 acts</item>
+        <item>60 acts</item>
+    </string-array>
+    <string-array name="bgw_threshold_acts_entry_values">
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>60</item>
+    </string-array>
+
+    <string-array name="bgw_threshold_breath_entries">
+        <item>10 breaths</item>
+        <item>15 breaths</item>
+        <item>20 breaths</item>
+    </string-array>
+    <string-array name="bgw_threshold_breath_entry_values">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </string-array>
+
+    <string-array name="bgw_threshold_pauses_percentage_entries">
+        <item>110%</item>
+        <item>125%</item>
+        <item>150%</item>
+        <item>200%</item>
+        <item>250%</item>
+    </string-array>
+    <string-array name="bgw_threshold_pauses_percentage_entry_values">
+        <item>110</item>
+        <item>125</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+    </string-array>
+
+    <string-array name="bgw_threshold_pauses_absolute_entries">
+        <item>1500 ms</item>
+        <item>2000 ms</item>
+        <item>2500 ms</item>
+        <item>3000 ms</item>
+        <item>3500 ms</item>
+    </string-array>
+    <string-array name="bgw_threshold_pauses_absolute_entry_values">
+        <item>1500</item>
+        <item>2000</item>
+        <item>2500</item>
+        <item>3000</item>
+        <item>3500</item>
+    </string-array>
+
+    <string-array name="bgw_threshold_rr_entries">
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>32</item>
+    </string-array>
+    <string-array name="bgw_threshold_rr_entry_values">
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>32</item>
+    </string-array>
+
+    <string-array name="bgw_threshold_rolling_num_entries">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+    </string-array>
+    <string-array name="bgw_threshold_rolling_num_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+    </string-array>
+
+    <string-array name="bgw_threshold_rolling_len_entries">
+        <item>1 min</item>
+        <item>5 min</item>
+        <item>10 min</item>
+        <item>30 min</item>
+        <item>1 h</item>
+        <item>2 h</item>
+        <item>5 h</item>
+    </string-array>
+    <string-array name="bgw_threshold_rolling_len_entry_values">
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+    </string-array>
+    
+    <string-array name="bgw_threshold_arrhythmia_percentage_entries">
+        <item>5%</item>
+        <item>10%</item>
+        <item>20%</item>
+        <item>25%</item>
+        <item>50%</item>
+        <item>80%</item>
+    </string-array>
+    <string-array name="bgw_threshold_arrhythmia_percentage_entry_values">
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>25</item>
+        <item>50</item>
+        <item>80</item>
+    </string-array>
+    
+    <string-array name="bgw_threshold_arrhythmia_bpm_entries">
+        <item>40 bpm</item>
+        <item>60 bpm</item>
+        <item>80 bpm</item>
+        <item>100 bpm</item>
+        <item>120 bpm</item>
+        <item>150 bpm</item>
+    </string-array>
+    <string-array name="bgw_threshold_arrhythmia_bpm_entry_values">
+        <item>40</item>
+        <item>60</item>
+        <item>80</item>
+        <item>100</item>
+        <item>120</item>
+        <item>150</item>
+    </string-array>
+
+</resources>

@@ -21,7 +21,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.st.BlueSTSDK.Feature;
 import com.st.bio2bit.R;
 import com.st.bio2bit.uicontroller.activities.DataActivity;
-import com.st.bio2bit.utilities.Constants;
+import com.st.bio2bit.utilities.Const;
 
 import java.util.ArrayList;
 
@@ -67,7 +67,7 @@ public class ChartView extends View {
                 stopPlotButton.setVisibility(VISIBLE);
                 feature.removeFeatureListener(listener);
                 feature.addFeatureListener(listener);
-                Message message = handler.obtainMessage(Constants.START_STREAM_CF, feature);
+                Message message = handler.obtainMessage(Const.START_STREAM_CF, feature);
                 handler.sendMessage(message);
             }
         });
@@ -77,7 +77,7 @@ public class ChartView extends View {
                 stopPlotButton.setVisibility(View.GONE);
                 startPlotButton.setVisibility(View.VISIBLE);
                 feature.removeFeatureListener(listener);
-                Message message = handler.obtainMessage(Constants.STOP_STREAM_CF, feature);
+                Message message = handler.obtainMessage(Const.STOP_STREAM_CF, feature);
                 handler.sendMessage(message);
             }
         });

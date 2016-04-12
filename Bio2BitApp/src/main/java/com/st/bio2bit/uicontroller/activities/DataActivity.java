@@ -17,7 +17,7 @@ import com.st.bio2bit.R;
 import com.st.bio2bit.uicontroller.adapters.PagerAdapter;
 import com.st.bio2bit.uicontroller.fragments.ChartsFragment;
 import com.st.bio2bit.uicontroller.fragments.ValuesFragment;
-import com.st.bio2bit.utilities.Constants;
+import com.st.bio2bit.utilities.Const;
 import com.st.bio2bit.utilities.Utils;
 
 import java.util.ArrayList;
@@ -45,29 +45,29 @@ public class DataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         Manager mManager = Manager.getSharedInstance();
-        connectedNode = mManager.getNodeWithTag(getIntent().getStringExtra(Constants.NODE));
+        connectedNode = mManager.getNodeWithTag(getIntent().getStringExtra(Const.NODE));
 
         mHandler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {
                 switch (msg.what) {
-                    case Constants.START_STREAM_VF:
+                    case Const.START_STREAM_VF:
                         for (Feature feature : valueFeatures)
                             connectedNode.enableNotification(feature);
-                        Constants.IS_STREAMING_VF = true;
+                        Const.IS_STREAMING_VF = true;
                         return true;
-                    case Constants.STOP_STREAM_VF:
+                    case Const.STOP_STREAM_VF:
                         for(Feature feature : valueFeatures)
                             connectedNode.disableNotification(feature);
-                        Constants.IS_STREAMING_VF = false;
+                        Const.IS_STREAMING_VF = false;
                         return true;
-                    case Constants.START_STREAM_CF:
+                    case Const.START_STREAM_CF:
                         Feature feature_start = (Feature) msg.obj;
                         connectedNode.enableNotification(feature_start);
                         return true;
-                    case Constants.STOP_STREAM_CF:
+                    case Const.STOP_STREAM_CF:
                         Feature feature_stop = (Feature) msg.obj;
-                        if(!(Constants.IS_STREAMING_VF && Utils.isValueFeature(feature_stop)))
+                        if(!(Const.IS_STREAMING_VF && Utils.isValueFeature(feature_stop)))
                             connectedNode.disableNotification(feature_stop);
                     default:
                         return false;
@@ -95,9 +95,9 @@ public class DataActivity extends AppCompatActivity {
         List<Feature> features = connectedNode.getFeatures();
         for (Feature feature : features) {
             feature.removeAllFeatureListener();
-            if (Arrays.asList(Constants.valuesFeatures).contains(feature.getClass()))
+            if (Arrays.asList(Const.valuesFeatures).contains(feature.getClass()))
                 valueFeatures.add(feature);
-            if (Arrays.asList(Constants.chartsFeatures).contains(feature.getClass()))
+            if (Arrays.asList(Const.chartsFeatures).contains(feature.getClass()))
                 chartFeatures.add(feature);
         }
     }
@@ -138,7 +138,7 @@ public class DataActivity extends AppCompatActivity {
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        if(Constants.DEBUG) Log.d(Constants.TAG, "DataActivity destroyed!");
+        if(Const.DEBUG) Log.d(Const.TAG, "DataActivity destroyed!");
         connectedNode.disconnect();
     }
 }

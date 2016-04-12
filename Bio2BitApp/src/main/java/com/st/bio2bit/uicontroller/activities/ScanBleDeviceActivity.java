@@ -36,7 +36,7 @@ import com.st.BlueSTSDK.Manager;
 import com.st.BlueSTSDK.Node;
 import com.st.bio2bit.R;
 import com.st.bio2bit.uicontroller.adapters.BleDevicesAdapter;
-import com.st.bio2bit.utilities.Constants;
+import com.st.bio2bit.utilities.Const;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -351,7 +351,7 @@ public class ScanBleDeviceActivity extends AppCompatActivity implements AdapterV
                 if (newState == Node.State.Connected) {
                     progressDialog.dismiss();
                     Intent i = new Intent(mContext, DataActivity.class);
-                    i.putExtra(Constants.NODE, node.getTag());
+                    i.putExtra(Const.NODE, node.getTag());
                     mContext.startActivity(i);
                 } else if (newState == Node.State.Connecting) {
                     progressDialog.show();

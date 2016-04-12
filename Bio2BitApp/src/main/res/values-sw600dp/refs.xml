@@ -2,5 +2,6 @@
 <resources>
     <item name="scan_ble_device_layout" type="layout">@layout/scan_ble_device_grid</item>
     <item name="data_layout" type="layout">@layout/activity_data_fragments</item>
+    <item name="bgw_data_layout" type="layout">@layout/activity_bgw_data_fragments</item>
     <item name="isTablet" type="bool">true</item>
 </resources>

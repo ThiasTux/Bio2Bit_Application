@@ -17,7 +17,7 @@ import com.st.BlueSTSDK.Features.FeaturePressure;
 import com.st.BlueSTSDK.Features.FeatureTemperature;
 import com.st.bio2bit.R;
 import com.st.bio2bit.uicontroller.activities.DataActivity;
-import com.st.bio2bit.utilities.Constants;
+import com.st.bio2bit.utilities.Const;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,7 @@ public class ValuesAdapter extends RecyclerView.Adapter<ValuesAdapter.ViewHolder
         holder.valueLabel.setText(features.get(position).getName());
         final String featureClassName = features.get(position).getClass().getSimpleName();
         holder.value.setText("----");
-        if(Constants.DEBUG) Log.d(Constants.TAG, "Listener added");
+        if(Const.DEBUG) Log.d(Const.TAG, "Listener added");
         features.get(position).removeAllFeatureListener();
         features.get(position).addFeatureListener(new Feature.FeatureListener() {
             @Override
@@ -66,7 +66,7 @@ public class ValuesAdapter extends RecyclerView.Adapter<ValuesAdapter.ViewHolder
         });
         holder.unit.setText(getFeatureUnit(featureClassName, position));
         try{
-            Constants.ConfigurableFeatures configurableFeatures = Constants.ConfigurableFeatures.valueOf(featureClassName);
+            Const.ConfigurableFeatures configurableFeatures = Const.ConfigurableFeatures.valueOf(featureClassName);
             holder.frequencies.setEnabled(true);
         } catch (IllegalArgumentException e){
             holder.frequencies.setEnabled(false);
@@ -75,7 +75,7 @@ public class ValuesAdapter extends RecyclerView.Adapter<ValuesAdapter.ViewHolder
 
     private String getFeatureUnit(String featureClassName, int position) {
         String featureUnit;
-        Constants.FeatureClass featureClass = Constants.FeatureClass.valueOf(featureClassName);
+        Const.FeatureClass featureClass = Const.FeatureClass.valueOf(featureClassName);
         try {
             switch (featureClass) {
                 case FeaturePressure:
@@ -111,7 +111,7 @@ public class ValuesAdapter extends RecyclerView.Adapter<ValuesAdapter.ViewHolder
 
     private String getFeatureValue(String featureClassName, int position) {
         String featureValue;
-        Constants.FeatureClass featureClass = Constants.FeatureClass.valueOf(featureClassName);
+        Const.FeatureClass featureClass = Const.FeatureClass.valueOf(featureClassName);
         try {
             switch (featureClass) {
                 case FeaturePressure:

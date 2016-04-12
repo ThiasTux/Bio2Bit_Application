@@ -17,7 +17,7 @@ import com.st.BlueSTSDK.Features.FeatureElectrocardiogramCompact;
 import com.st.bio2bit.R;
 import com.st.bio2bit.uicontroller.activities.DataActivity;
 import com.st.bio2bit.uicontroller.views.ChartView;
-import com.st.bio2bit.utilities.Constants;
+import com.st.bio2bit.utilities.Const;
 
 import butterknife.ButterKnife;
 
@@ -69,7 +69,7 @@ public class ECGChartView extends ChartView{
                 stopPlotButton.setVisibility(VISIBLE);
                 feature.removeFeatureListener(listener);
                 feature.addFeatureListener(listener);
-                Message message = handler.obtainMessage(Constants.START_STREAM_CF, feature);
+                Message message = handler.obtainMessage(Const.START_STREAM_CF, feature);
                 handler.sendMessage(message);
             }
         });
@@ -79,7 +79,7 @@ public class ECGChartView extends ChartView{
                 stopPlotButton.setVisibility(View.GONE);
                 startPlotButton.setVisibility(View.VISIBLE);
                 feature.removeFeatureListener(listener);
-                Message message = handler.obtainMessage(Constants.STOP_STREAM_CF, feature);
+                Message message = handler.obtainMessage(Const.STOP_STREAM_CF, feature);
                 handler.sendMessage(message);
             }
         });

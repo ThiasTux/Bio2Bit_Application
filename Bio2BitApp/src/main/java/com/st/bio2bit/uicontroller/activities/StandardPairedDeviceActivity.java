@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import com.st.bio2bit.R;
 import com.st.bio2bit.uicontroller.adapters.ScannedStandardDeviceAdapter;
-import com.st.bio2bit.utilities.Constants;
+import com.st.bio2bit.utilities.Const;
 import com.st.bio2bit.utilities.Utils;
 
 import java.util.ArrayList;
@@ -68,33 +68,33 @@ public class StandardPairedDeviceActivity extends AppCompatActivity implements A
 
         if (!mBluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableBtIntent, Constants.REQUEST_ENABLE_BT);
+            startActivityForResult(enableBtIntent, Const.REQUEST_ENABLE_BT);
         }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if (Constants.DEBUG) Log.e(Constants.TAG, "++ ON START ++");
+        if (Const.DEBUG) Log.e(Const.TAG, "++ ON START ++");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (Constants.DEBUG) Log.e(Constants.TAG, "++ ON RESUME ++");
+        if (Const.DEBUG) Log.e(Const.TAG, "++ ON RESUME ++");
         addBondedDevices();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (Constants.DEBUG) Log.e(Constants.TAG, "++ ON PAUSE ++");
+        if (Const.DEBUG) Log.e(Const.TAG, "++ ON PAUSE ++");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        if (Constants.DEBUG) Log.e(Constants.TAG, "++ ON STOP ++");
+        if (Const.DEBUG) Log.e(Const.TAG, "++ ON STOP ++");
     }
 
     @Override
@@ -105,7 +105,7 @@ public class StandardPairedDeviceActivity extends AppCompatActivity implements A
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_scan_standard_device, menu);
+        getMenuInflater().inflate(R.menu.menu_standard_paired_device, menu);
         return true;
     }
 
@@ -121,6 +121,9 @@ public class StandardPairedDeviceActivity extends AppCompatActivity implements A
             case R.id.action_add_devices:
                 pairNewDevices();
                 break;
+            case R.id.action_settings:
+                this.startActivity(new Intent(this, BGWSetParametersActivity.class));
+                break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -128,18 +131,18 @@ public class StandardPairedDeviceActivity extends AppCompatActivity implements A
 
     private void pairNewDevices() {
         Intent intent = new Intent(this, ScanStandardDeviceActivity.class);
-        this.startActivityForResult(intent, Constants.REQUEST_DEVICE_PARING);
+        this.startActivityForResult(intent, Const.REQUEST_DEVICE_PARING);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(requestCode == Constants.REQUEST_ENABLE_BT){
+        if(requestCode == Const.REQUEST_ENABLE_BT){
             if(resultCode == Activity.RESULT_CANCELED){
                 Toast.makeText(this, "This application cannot work without Bluetooth turned on.", Toast.LENGTH_LONG).show();
                 finish();
             }
         }
-        if(requestCode == Constants.REQUEST_DEVICE_PARING){
+        if(requestCode == Const.REQUEST_DEVICE_PARING){
             if(resultCode == Activity.RESULT_OK) {
                 BluetoothDevice device = data.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 Snackbar.make(this.getCurrentFocus(), device.getName()+" paired successfully", Snackbar.LENGTH_LONG);
@@ -168,8 +171,8 @@ public class StandardPairedDeviceActivity extends AppCompatActivity implements A
     @Override
     public void onItemClick(View v, int position) {
         BluetoothDevice device = adapter.getItem(position);
-        Intent intent = new Intent(this, StDataActivity.class);
-        intent.putExtra(Constants.BLUETOOTH_DEVICE, device);
+        Intent intent = new Intent(this, BGWDataActivity.class);
+        intent.putExtra(Const.BLUETOOTH_DEVICE, device);
         this.startActivity(intent);
     }
 }

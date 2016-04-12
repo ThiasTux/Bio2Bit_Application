@@ -7,7 +7,7 @@ import android.util.Log;
 import android.widget.Button;
 
 import com.st.bio2bit.R;
-import com.st.bio2bit.utilities.Constants;
+import com.st.bio2bit.utilities.Const;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -31,19 +31,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (Constants.DEBUG) Log.e(Constants.TAG, "++ ON START ++");
+        if (Const.DEBUG) Log.e(Const.TAG, "++ ON START ++");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (Constants.DEBUG) Log.e(Constants.TAG, "++ ON RESUME ++");
+        if (Const.DEBUG) Log.e(Const.TAG, "++ ON RESUME ++");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (Constants.DEBUG) Log.e(Constants.TAG, "++ ON PAUSE ++");
+        if (Const.DEBUG) Log.e(Const.TAG, "++ ON PAUSE ++");
     }
 
     @OnClick(R.id.scan_ble_button)
