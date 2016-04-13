@@ -66,7 +66,10 @@ public class StandardPairedDeviceActivity extends AppCompatActivity implements A
         adapter.setOnItemClickListener(this);
         mDevices.setAdapter(adapter);
 
-        if (!mBluetoothAdapter.isEnabled()) {
+        if(mBluetoothAdapter==null){
+            Toast.makeText(getApplicationContext(), "Bluetooth not supported. This application requires Bluetooth.", Toast.LENGTH_LONG).show();
+            StandardPairedDeviceActivity.this.finish();
+        }else if (!mBluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, Const.REQUEST_ENABLE_BT);
         }

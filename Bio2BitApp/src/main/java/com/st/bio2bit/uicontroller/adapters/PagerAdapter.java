@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.st.bio2bit.R;
+import com.st.bio2bit.uicontroller.fragments.BGWChartsFragment;
+import com.st.bio2bit.uicontroller.fragments.BGWValuesFragment;
 import com.st.bio2bit.uicontroller.fragments.ChartsFragment;
 import com.st.bio2bit.uicontroller.fragments.ValuesFragment;
 
@@ -17,16 +19,21 @@ public class PagerAdapter extends FragmentPagerAdapter {
     private final int NUM_TABS = 2;
     private Context context;
     private String[] tabTitles = new String[NUM_TABS];
-    private ValuesFragment valuesFragment;
-    private ChartsFragment chartsFragment;
+    private Fragment valuesFragment;
+    private Fragment chartsFragment;
 
-    public PagerAdapter(FragmentManager fm, Context context) {
+    public PagerAdapter(FragmentManager fm, Context context, boolean isBGW) {
         super(fm);
         this.context = context;
         tabTitles[0] = context.getResources().getString(R.string.values);
         tabTitles[1] = context.getResources().getString(R.string.charts);
-        valuesFragment = new ValuesFragment();
-        chartsFragment = new ChartsFragment();
+        if(isBGW) {
+            valuesFragment = new BGWValuesFragment();
+            chartsFragment = new BGWChartsFragment();
+        } else {
+            valuesFragment = new ValuesFragment();
+            chartsFragment = new ChartsFragment();
+        }
     }
 
     @Override

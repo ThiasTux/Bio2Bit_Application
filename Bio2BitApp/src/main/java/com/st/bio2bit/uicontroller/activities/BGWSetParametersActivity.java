@@ -2,25 +2,30 @@ package com.st.bio2bit.uicontroller.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.st.bio2bit.R;
-import com.st.bio2bit.uicontroller.fragments.BGWSettingsFragment;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Created by mathias on 08/04/16.
  */
 public class BGWSetParametersActivity extends AppCompatActivity {
 
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_bgw_set_parameters);
 
-        getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new BGWSettingsFragment())
-                .commit();
+        ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
     }
 
     @Override

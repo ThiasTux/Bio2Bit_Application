@@ -7,4 +7,6 @@
     <color name="colorX">#FF0000</color>
     <color name="colorY">#00FF00</color>
     <color name="colorZ">#0000FF</color>
+
+    <color name="lightGray">#cccccc</color>
 </resources>

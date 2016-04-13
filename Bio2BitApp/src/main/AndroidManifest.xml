@@ -44,8 +44,10 @@
             android:name=".uicontroller.activities.ScanStandardDeviceActivity"
             android:theme="@style/DialogTheme"
             android:excludeFromRecents="true"/>
-        <activity android:name=".uicontroller.activities.BGWDataActivity"/>
-        <activity android:name=".uicontroller.activities.BGWSetParametersActivity" />
+        <activity android:name=".uicontroller.activities.BGWDataActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".uicontroller.activities.BGWSetParametersActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <service
             android:name=".controller.CommunicationService"
             android:enabled="true"
@@ -53,7 +55,11 @@
         <service
             android:name=".controller.LogService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

@@ -1,0 +1,107 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".uicontroller.fragments.ValuesFragment">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:elevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heart_rate_bpm"
+                android:textAppearance="@android:style/TextAppearance.Medium"
+                android:id="@+id/bgw_heartrate_label"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bgw_heartrate_value"
+                android:text="@string/values"
+                android:layout_alignTop="@+id/bgw_heartrate_label"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/breathing_rate_bpm"
+                android:textAppearance="@android:style/TextAppearance.Medium"
+                android:id="@+id/bgw_breathingrate_label"
+                android:layout_below="@+id/bgw_heartrate_label"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bgw_breathingrate_value"
+                android:text="@string/values"
+                android:layout_alignTop="@+id/bgw_breathingrate_label"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_level_perc"
+                android:textAppearance="@android:style/TextAppearance.Medium"
+                android:id="@+id/bgw_activity_level_label"
+                android:layout_below="@+id/bgw_breathingrate_label"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bgw_activity_level_value"
+                android:text="@string/values"
+                android:layout_alignTop="@+id/bgw_activity_level_label"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/battery_level_mv"
+                android:textAppearance="@android:style/TextAppearance.Medium"
+                android:id="@+id/bgw_battery_level_label"
+                android:layout_below="@+id/bgw_activity_level_label"
+                android:layout_margin="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bgw_battery_level_value"
+                android:text="@string/values"
+                android:layout_alignTop="@+id/bgw_battery_level_label"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/bgw_battery_level_label"
+                android:id="@+id/bgw_console_scrollview"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/scrollviewborder">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bgw_console"/>
+            </ScrollView>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

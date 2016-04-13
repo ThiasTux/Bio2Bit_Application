@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class BGWConst {
 
     public static final String PARAMS = "bgw_shared_prefs";
+
     public static boolean WAIT_FOR_BYTE;
     public static boolean WAIT_FOR_FRAME_CONTROL;
     public static boolean WAIT_FOR_START;
@@ -18,6 +19,21 @@ public class BGWConst {
     public static int START_OF_PACKET = 0x53;
     public static int FRAME_CONTROL = 0x81;
     public static int END_OF_PACKET = 0x81;
+
+    public static final int DEVICE_CONNECTED = 1001;
+    public static final int DEVICE_DISCONNECTED = 1002;
+    public static final int DEVICE_CONNECTION_FAILED = 1003;
+    public static final int NEW_ACCELERATION_DATA = 2001;
+    public static final int NEW_HEARTRATE_DATA = 2002;
+    public static final int NEW_BIOIMPEDANCE_DX_DATA = 2003;
+    public static final int NEW_BIOIMPEDANCE_Z0_DATA = 2004;
+    public static final int NEW_ACTIVITY_LEVEL_DATA = 2005;
+    public static final int NEW_BATTERY_LEVEL_DATA = 2006;
+    public static final int NEW_BREATHINGRATE_DATA = 2007;
+    public static final int NEW_ELECTROCARDIOGRAM_DATA = 2008;
+    public static final int NEW_RRI_DATA = 2009;
+
+
 
     public enum BGWCommandID {
         cfgReq((byte) 2),

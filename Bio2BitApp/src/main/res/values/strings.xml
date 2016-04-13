@@ -32,4 +32,10 @@
     <string name="device_connected">Device connected successfully.</string>
     <string name="set_parameters">Set Parameters</string>
     <string name="save">Save</string>
+    <string name="heart_rate_bpm">Heart rate [bpm]</string>
+    <string name="breathing_rate_bpm">Breathing Rate [bpm]</string>
+    <string name="activity_level_perc">Activity Level [%]</string>
+    <string name="battery_level_mv">Battery Level [mV]</string>
+    <string name="start_streaming">Start Streaming</string>
+    <string name="stop_streaming">Stop Streaming</string>
 </resources>

@@ -25,15 +25,15 @@
         android:orientation="horizontal">
 
         <fragment
-            android:id="@+id/values_fragment"
-            android:name="com.st.bio2bit.uicontroller.fragments.ValuesFragment"
+            android:id="@+id/bgw_values_fragment"
+            android:name="com.st.bio2bit.uicontroller.fragments.BGWValuesFragment"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".33" />
 
         <fragment
-            android:id="@+id/charts_fragment"
-            android:name="com.st.bio2bit.uicontroller.fragments.ChartsFragment"
+            android:id="@+id/bgw_charts_fragment"
+            android:name="com.st.bio2bit.uicontroller.fragments.BGWChartsFragment"
             android:layout_width="0dp"
             android:layout_weight="0.67"
             android:layout_height="match_parent" />

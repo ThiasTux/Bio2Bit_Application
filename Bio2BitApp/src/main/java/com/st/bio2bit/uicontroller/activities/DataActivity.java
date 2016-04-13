@@ -112,7 +112,7 @@ public class DataActivity extends AppCompatActivity {
     private void setupTabs() {
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager(), DataActivity.this));
+        viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager(), DataActivity.this, false));
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.fragment_tabs);
         tabLayout.setupWithViewPager(viewPager);

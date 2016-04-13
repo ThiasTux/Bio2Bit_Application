@@ -17,5 +17,4 @@ public class BGWSettingsFragment extends PreferenceFragment {
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.bgw_preferences);
     }
-
 }
