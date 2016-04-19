@@ -38,4 +38,5 @@
     <string name="battery_level_mv">Battery Level [mV]</string>
     <string name="start_streaming">Start Streaming</string>
     <string name="stop_streaming">Stop Streaming</string>
+    <string name="send_command">Send Command</string>
 </resources>

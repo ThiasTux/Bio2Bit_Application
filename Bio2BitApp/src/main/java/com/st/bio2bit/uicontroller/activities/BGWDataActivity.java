@@ -132,7 +132,7 @@ public class BGWDataActivity extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.action_start_stream).setVisible(!isStreaming);
+        menu.findItem(R.id.action_send_command).setVisible(!isStreaming);
         menu.findItem(R.id.action_stop_stream).setVisible(isStreaming);
         return true;
     }
@@ -146,10 +146,8 @@ public class BGWDataActivity extends AppCompatActivity {
                 Intent intent = new Intent(mContext, BGWSetParametersActivity.class);
                 this.startActivity(intent);
                 break;
-            case R.id.action_start_stream:
-                isStreaming = true;
-                invalidateOptionsMenu();
-                break;
+            case R.id.action_send_command:
+                sendCommand();
             case R.id.action_stop_stream:
                 isStreaming = false;
                 invalidateOptionsMenu();
@@ -157,6 +155,10 @@ public class BGWDataActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    private void sendCommand() {
+
     }
 
     @Override

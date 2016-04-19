@@ -6,6 +6,9 @@ import android.os.Handler;
 
 import com.st.bio2bit.model.BluetoothState;
 import com.st.bio2bit.utilities.BGWConst;
+import com.st.bio2bit.utilities.BGWConst.BGWCommandID;
+
+import java.util.Arrays;
 
 
 /**
@@ -37,6 +40,7 @@ public class BGWBluetoothDriver implements BluetoothSPP.OnDataReceivedListener {
                 mHandler.obtainMessage(BGWConst.DEVICE_CONNECTION_FAILED, device).sendToTarget();
             }
         });
+        bluetoothSPP.setOnDataReceivedListener(this);
         initializeService();
     }
 
@@ -49,18 +53,21 @@ public class BGWBluetoothDriver implements BluetoothSPP.OnDataReceivedListener {
         bluetoothSPP.connect(device.getAddress());
     }
 
-    private void setBluetoothConnectionListener(BluetoothSPP.BluetoothConnectionListener listener){
-        bluetoothSPP.setBluetoothConnectionListener(listener);
-
-    }
-
-    private void setBluetoothStateListener(BluetoothSPP.BluetoothStateListener listener){
-        bluetoothSPP.setBluetoothStateListener(listener);
-    }
-
-
     @Override
     public void onDataReceived(byte[] data, String message) {
+        byte startOfPacket = data[0];
+        byte frameControl = data[1];
+        BGWCommandID commandID = BGWCommandID.getCommandID(data[3]);
+        switch (commandID){
+            case cfgRsp:
+                parseCfgRsp(Arrays.copyOfRange(data, 4, data.length));
+                break;
+
+
+        }
+    }
+
+    private void parseCfgRsp(byte[] bytes) {
 
     }
 

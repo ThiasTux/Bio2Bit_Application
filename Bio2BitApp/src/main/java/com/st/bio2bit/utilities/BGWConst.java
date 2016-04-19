@@ -1,6 +1,9 @@
 package com.st.bio2bit.utilities;
 
 import java.util.Arrays;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by mathias on 01/04/16.
@@ -34,7 +37,6 @@ public class BGWConst {
     public static final int NEW_RRI_DATA = 2009;
 
 
-
     public enum BGWCommandID {
         cfgReq((byte) 2),
         cfgRsp((byte) 3),
@@ -63,16 +65,24 @@ public class BGWConst {
         genericErrorRsp((byte) 251);
 
         private final byte id;
+        private static final Map<Byte, BGWCommandID> lookup =
+                new HashMap<>();
 
         BGWCommandID(byte id) {
             this.id = id;
+        }
+
+        static {
+            for (BGWCommandID commandID : EnumSet.allOf(BGWCommandID.class)) {
+                lookup.put(commandID.getId(), commandID);
+            }
         }
 
         public byte getId() {
             return id;
         }
 
-        public static boolean isBGWCommandId(byte id){
+        public static boolean isBGWCommandId(byte id) {
             return Arrays.asList(new byte[]{
                     2, 3, 4, 5, 6, 7, 8, 9,
                     10, 11, 12, 13,
@@ -80,6 +90,10 @@ public class BGWConst {
                     (byte) 200, (byte) 201, (byte) 202, (byte) 203,
                     (byte) 210, (byte) 211, (byte) 251
             }).contains(id);
+        }
+
+        public static BGWCommandID getCommandID(byte commandID) {
+            return lookup.get(commandID);
         }
     }
 
@@ -103,9 +117,21 @@ public class BGWConst {
         fwChunk((byte) 242);
 
         private final byte id;
+        private static final Map<Byte, BGWClusterID> lookup =
+                new HashMap<>();
 
         BGWClusterID(byte id) {
             this.id = id;
+        }
+
+        static {
+            for (BGWClusterID clusterID : EnumSet.allOf(BGWClusterID.class)) {
+                lookup.put(clusterID.getId(), clusterID);
+            }
+        }
+
+        public byte getId() {
+            return id;
         }
 
         public static boolean isBGWCluster(byte data) {
@@ -114,6 +140,10 @@ public class BGWConst {
                     8, 9, 10, 11, 12, 13,
                     14, 15, (byte) 241, (byte) 242
             }).contains(data);
+        }
+
+        public static BGWClusterID getClusterID(byte id) {
+            return lookup.get(id);
         }
     }
 
@@ -130,9 +160,25 @@ public class BGWConst {
         rri((byte) 19);
 
         private final byte id;
+        private static final Map<Byte, BGWVitalDataID> lookup =
+                new HashMap<>();
 
         BGWVitalDataID(byte id) {
             this.id = id;
+        }
+
+        static {
+            for (BGWVitalDataID vitalDataID : EnumSet.allOf(BGWVitalDataID.class)) {
+                lookup.put(vitalDataID.getId(), vitalDataID);
+            }
+        }
+
+        private byte getId() {
+            return id;
+        }
+
+        public static BGWVitalDataID getVitalDataID(byte id) {
+            return lookup.get(id);
         }
     }
 
@@ -142,10 +188,26 @@ public class BGWConst {
         na((byte) 3);
 
 
-        private final byte status;
+        private final byte id;
+        private static final Map<Byte, BGWStatus> lookup =
+                new HashMap<>();
 
-        BGWStatus(byte status) {
-            this.status = status;
+        BGWStatus(byte id) {
+            this.id = id;
+        }
+
+        static {
+            for (BGWStatus status : EnumSet.allOf(BGWStatus.class)) {
+                lookup.put(status.getId(), status);
+            }
+        }
+
+        private byte getId() {
+            return id;
+        }
+
+        public static BGWStatus getStatus(byte id) {
+            return lookup.get(id);
         }
     }
 
@@ -158,9 +220,25 @@ public class BGWConst {
         electrodesDetached((byte) 55);
 
         private final byte id;
+        private static final Map<Byte, BGWNotificationID> lookup =
+                new HashMap<>();
 
         BGWNotificationID(byte id) {
             this.id = id;
+        }
+
+        static {
+            for (BGWNotificationID notificationID : EnumSet.allOf(BGWNotificationID.class)) {
+                lookup.put(notificationID.getID(), notificationID);
+            }
+        }
+
+        private byte getID() {
+            return id;
+        }
+
+        public static BGWNotificationID getNotificationID(byte id) {
+            return lookup.get(id);
         }
     }
 
@@ -178,9 +256,25 @@ public class BGWConst {
 
 
         private final byte id;
+        private static final Map<Byte, BGWMedicalProtocolID> lookup =
+                new HashMap<>();
 
         BGWMedicalProtocolID(byte id) {
             this.id = id;
+        }
+
+        static {
+            for (BGWMedicalProtocolID medicalProtocolID : EnumSet.allOf(BGWMedicalProtocolID.class)) {
+                lookup.put(medicalProtocolID.getID(), medicalProtocolID);
+            }
+        }
+
+        private byte getID() {
+            return id;
+        }
+
+        public static BGWMedicalProtocolID getID(byte id) {
+            return lookup.get(id);
         }
     }
 }
